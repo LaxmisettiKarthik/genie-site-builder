@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,7 @@ import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, Tre
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
+
 const Index = () => {
   return <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
       {/* Navigation */}
@@ -210,71 +212,127 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="px-6 lg:px-8 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Transform Your Business Results</h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+      {/* Enhanced Futuristic Benefits Section */}
+      <section className="px-6 lg:px-8 py-24 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-[#3BC553] rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3BC553] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-[#3BC553] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 bg-[#3BC553]/10 border border-[#3BC553]/30 rounded-full px-6 py-2 mb-6">
+              <Sparkles className="w-4 h-4 text-[#3BC553]" />
+              <span className="text-[#3BC553] font-medium">Transformative Results</span>
+            </div>
+            <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent mb-6">
+              Transform Your Business Results
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               See the measurable impact of AI-powered catalog automation
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-[#3BC553]/20 to-green-600/10 border-[#3BC553]/30">
-              <CardContent className="p-6 text-center">
-                <BarChart3 className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">Increase Revenue</h3>
-                <div className="text-3xl font-bold text-[#3BC553] mb-2">+40%</div>
-                <p className="text-gray-300">Better product descriptions lead to higher conversion rates and sales</p>
+          {/* Futuristic Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            {/* Revenue Card */}
+            <Card className="group relative bg-gradient-to-br from-[#3BC553]/20 via-[#3BC553]/10 to-transparent border-[#3BC553]/30 hover:border-[#3BC553]/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3BC553]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3BC553]/10 rounded-full blur-2xl group-hover:bg-[#3BC553]/20 transition-all duration-500"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3BC553] to-green-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <BarChart3 className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Increase Revenue</h3>
+                <div className="text-5xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mb-4">+40%</div>
+                <p className="text-gray-300 leading-relaxed">Better product descriptions lead to higher conversion rates and sales</p>
+                <div className="mt-6 h-1 bg-gradient-to-r from-[#3BC553] to-green-400 rounded-full"></div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-blue-500/20 to-cyan-600/10 border-blue-500/30">
-              <CardContent className="p-6 text-center">
-                <Clock className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">Save Time</h3>
-                <div className="text-3xl font-bold text-blue-400 mb-2">95%</div>
-                <p className="text-gray-300">Reduce manual catalog work from hours to minutes with automation</p>
+            {/* Time Card */}
+            <Card className="group relative bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <Clock className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Save Time</h3>
+                <div className="text-5xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4">95%</div>
+                <p className="text-gray-300 leading-relaxed">Reduce manual catalog work from hours to minutes with automation</p>
+                <div className="mt-6 h-1 bg-gradient-to-r from-cyan-500 to-blue-400 rounded-full"></div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-purple-500/20 to-pink-600/10 border-purple-500/30">
-              <CardContent className="p-6 text-center">
-                <Lightbulb className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">Improve Quality</h3>
-                <div className="text-3xl font-bold text-purple-400 mb-2">99.9%</div>
-                <p className="text-gray-300">Consistent, accurate product information across your entire catalog</p>
+            {/* Quality Card */}
+            <Card className="group relative bg-gradient-to-br from-purple-500/20 via-pink-500/10 to-transparent border-purple-500/30 hover:border-purple-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all duration-500"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Improve Quality</h3>
+                <div className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">99.9%</div>
+                <p className="text-gray-300 leading-relaxed">Consistent, accurate product information across your entire catalog</p>
+                <div className="mt-6 h-1 bg-gradient-to-r from-purple-500 to-pink-400 rounded-full"></div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-orange-500/20 to-red-600/10 border-orange-500/30">
-              <CardContent className="p-6 text-center">
-                <Workflow className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">Scale Effortlessly</h3>
-                <div className="text-3xl font-bold text-orange-400 mb-2">10x</div>
-                <p className="text-gray-300">Handle growing product catalogs without increasing team size</p>
+            {/* Scale Card */}
+            <Card className="group relative bg-gradient-to-br from-orange-500/20 via-red-500/10 to-transparent border-orange-500/30 hover:border-orange-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl group-hover:bg-orange-500/20 transition-all duration-500"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <Workflow className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Scale Effortlessly</h3>
+                <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-4">10x</div>
+                <p className="text-gray-300 leading-relaxed">Handle growing product catalogs without increasing team size</p>
+                <div className="mt-6 h-1 bg-gradient-to-r from-orange-500 to-red-400 rounded-full"></div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-600/10 border-teal-500/30">
-              <CardContent className="p-6 text-center">
-                <Shield className="w-12 h-12 text-teal-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">Reduce Errors</h3>
-                <div className="text-3xl font-bold text-teal-400 mb-2">-90%</div>
-                <p className="text-gray-300">AI eliminates human errors in product categorization and tagging</p>
+            {/* Errors Card */}
+            <Card className="group relative bg-gradient-to-br from-teal-500/20 via-emerald-500/10 to-transparent border-teal-500/30 hover:border-teal-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl group-hover:bg-teal-500/20 transition-all duration-500"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-emerald-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Reduce Errors</h3>
+                <div className="text-5xl font-black bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent mb-4">-90%</div>
+                <p className="text-gray-300 leading-relaxed">AI eliminates human errors in product categorization and tagging</p>
+                <div className="mt-6 h-1 bg-gradient-to-r from-teal-500 to-emerald-400 rounded-full"></div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-yellow-500/20 to-amber-600/10 border-yellow-500/30">
-              <CardContent className="p-6 text-center">
-                <MessageSquare className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">Better SEO</h3>
-                <div className="text-3xl font-bold text-yellow-400 mb-2">+60%</div>
-                <p className="text-gray-300">Optimized product descriptions improve search engine rankings</p>
+            {/* SEO Card */}
+            <Card className="group relative bg-gradient-to-br from-yellow-500/20 via-amber-500/10 to-transparent border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl group-hover:bg-yellow-500/20 transition-all duration-500"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <MessageSquare className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Better SEO</h3>
+                <div className="text-5xl font-black bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent mb-4">+60%</div>
+                <p className="text-gray-300 leading-relaxed">Optimized product descriptions improve search engine rankings</p>
+                <div className="mt-6 h-1 bg-gradient-to-r from-yellow-500 to-amber-400 rounded-full"></div>
               </CardContent>
             </Card>
           </div>
+
+          {/* Floating Elements */}
+          <div className="absolute top-1/4 left-8 w-3 h-3 bg-[#3BC553] rounded-full animate-ping"></div>
+          <div className="absolute top-3/4 right-12 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/4 left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
         </div>
       </section>
 
