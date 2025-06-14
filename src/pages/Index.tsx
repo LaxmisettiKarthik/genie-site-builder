@@ -6,8 +6,11 @@ import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, Tre
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
+import { useState } from "react";
 
 const Index = () => {
+  const [showAIDemo, setShowAIDemo] = useState(false);
+
   return <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
       {/* Navigation */}
       <nav className="flex items-center justify-between p-6 lg:px-8">
@@ -48,10 +51,36 @@ const Index = () => {
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-4 text-lg">
-                Watch Demo
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-4 text-lg"
+                onClick={() => setShowAIDemo(!showAIDemo)}
+              >
+                {showAIDemo ? "Hide Demo" : "Watch Demo"}
+              </Button>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg"
+                onClick={() => setShowAIDemo(!showAIDemo)}
+              >
+                {showAIDemo ? "Hide AI Demo" : "Enrich Product"}
+                <Sparkles className="ml-2 w-5 h-5" />
               </Button>
             </div>
+
+            {/* AI Demo Section - Shown when button is clicked */}
+            {showAIDemo && (
+              <div className="mt-12 mb-12">
+                <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30">
+                  <h3 className="text-2xl font-bold text-white mb-4">AI Content Generation Demo</h3>
+                  <p className="text-gray-300 mb-6">
+                    Experience how our AI automatically generates compelling product content for your retail business.
+                  </p>
+                  <AIContentGenerator />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Hero Stats */}
@@ -180,35 +209,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Demo Section */}
+      {/* AI Demo Section - Updated to show only dashboard */}
       <section id="demo" className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">See AI in Action</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Real-Time Analytics Dashboard</h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Watch how our AI automatically tags products and generates compelling content for your retail business.
+              Track your AI-powered catalog optimization with detailed metrics and insights.
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            
-            
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Content Generation</h3>
-              <p className="text-gray-300 mb-6">
-                Generate compelling product titles, descriptions, and bullet points that convert visitors into customers.
-              </p>
-              <AIContentGenerator />
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4 text-center">Real-Time Analytics Dashboard</h3>
-            <p className="text-gray-300 mb-6 text-center max-w-2xl mx-auto">
-              Track your AI-powered catalog optimization with detailed metrics and insights.
-            </p>
-            <RetailDashboard />
-          </div>
+          <RetailDashboard />
         </div>
       </section>
 
