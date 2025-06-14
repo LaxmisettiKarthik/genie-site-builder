@@ -1,7 +1,8 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, TrendingUp, Target, Package, Brain, Eye, MessageSquare, BarChart3, Lightbulb, Workflow } from "lucide-react";
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
@@ -30,29 +31,152 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="px-6 lg:px-8 py-20 lg:py-32">
-        <div className="max-w-4xl mx-auto text-center">
-          <Badge className="mb-6 bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30">
-            ✨ AI-Powered Catalog Management
-          </Badge>
-          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Transform Your
-            <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Product Catalogs </span>
-            with AI Magic
-          </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Generate stunning product descriptions, optimize images, and manage your entire catalog with the power of artificial intelligence. Save hours of work while boosting conversions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg">
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-4 text-lg">
-              Watch Demo
-            </Button>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-6 bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30">
+              ✨ AI-Powered Catalog Management
+            </Badge>
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Automate Product Catalog
+              <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Management </span>
+              with AI Intelligence
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Transform manual catalog work into automated intelligence. Our AI automatically tags products, generates compelling descriptions, and optimizes your entire catalog in seconds - not hours.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg">
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-4 text-lg">
+                Watch Demo
+              </Button>
+            </div>
           </div>
-          <div className="mt-12 text-sm text-gray-400">
-            ⚡ No credit card required • 14-day free trial • Cancel anytime
+
+          {/* Hero Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+              <div className="text-3xl font-bold text-[#3BC553] mb-2">95%</div>
+              <div className="text-gray-400 text-sm">Time Saved</div>
+            </div>
+            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+              <div className="text-3xl font-bold text-[#3BC553] mb-2">10x</div>
+              <div className="text-gray-400 text-sm">Faster Processing</div>
+            </div>
+            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+              <div className="text-3xl font-bold text-[#3BC553] mb-2">99.9%</div>
+              <div className="text-gray-400 text-sm">Accuracy Rate</div>
+            </div>
+            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+              <div className="text-3xl font-bold text-[#3BC553] mb-2">24/7</div>
+              <div className="text-gray-400 text-sm">Automated Processing</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="px-6 lg:px-8 py-20 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">The Manual Catalog Challenge</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              E-commerce teams waste countless hours on repetitive catalog tasks that could be automated
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-red-900/20 border-red-500/30">
+              <CardContent className="p-6 text-center">
+                <Clock className="w-12 h-12 text-red-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Time Consuming</h3>
+                <p className="text-gray-300 mb-4">Teams spend 40+ hours weekly on manual product tagging and description writing</p>
+                <div className="text-2xl font-bold text-red-400">40+ hrs/week</div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-orange-900/20 border-orange-500/30">
+              <CardContent className="p-6 text-center">
+                <Eye className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Human Error</h3>
+                <p className="text-gray-300 mb-4">Manual processes lead to inconsistent tagging and missed product attributes</p>
+                <div className="text-2xl font-bold text-orange-400">30% Error Rate</div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-yellow-900/20 border-yellow-500/30">
+              <CardContent className="p-6 text-center">
+                <TrendingUp className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Scaling Issues</h3>
+                <p className="text-gray-300 mb-4">Growing product catalogs overwhelm manual processes and team capacity</p>
+                <div className="text-2xl font-bold text-yellow-400">Can't Scale</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Infographic */}
+      <section className="px-6 lg:px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Solution</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Our intelligent automation transforms your catalog workflow
+            </p>
+          </div>
+
+          {/* Process Flow */}
+          <div className="relative">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+              
+              {/* Step 1 */}
+              <div className="flex-1 text-center">
+                <div className="w-16 h-16 bg-[#3BC553] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Package className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Upload Products</h3>
+                <p className="text-gray-400 text-sm">Simply upload your product images and basic information</p>
+              </div>
+
+              {/* Arrow */}
+              <ArrowRight className="w-6 h-6 text-[#3BC553] hidden md:block" />
+
+              {/* Step 2 */}
+              <div className="flex-1 text-center">
+                <div className="w-16 h-16 bg-[#3BC553] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Brain className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">AI Analysis</h3>
+                <p className="text-gray-400 text-sm">Our AI instantly analyzes and identifies product features</p>
+              </div>
+
+              {/* Arrow */}
+              <ArrowRight className="w-6 h-6 text-[#3BC553] hidden md:block" />
+
+              {/* Step 3 */}
+              <div className="flex-1 text-center">
+                <div className="w-16 h-16 bg-[#3BC553] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Auto Generation</h3>
+                <p className="text-gray-400 text-sm">Tags, descriptions, and metadata generated automatically</p>
+              </div>
+
+              {/* Arrow */}
+              <ArrowRight className="w-6 h-6 text-[#3BC553] hidden md:block" />
+
+              {/* Step 4 */}
+              <div className="flex-1 text-center">
+                <div className="w-16 h-16 bg-[#3BC553] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Optimized Results</h3>
+                <p className="text-gray-400 text-sm">Ready-to-publish, conversion-optimized product listings</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -95,8 +219,76 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Benefits Section */}
+      <section className="px-6 lg:px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Transform Your Business Results</h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              See the measurable impact of AI-powered catalog automation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="bg-gradient-to-br from-[#3BC553]/20 to-green-600/10 border-[#3BC553]/30">
+              <CardContent className="p-6 text-center">
+                <BarChart3 className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Increase Revenue</h3>
+                <div className="text-3xl font-bold text-[#3BC553] mb-2">+40%</div>
+                <p className="text-gray-300">Better product descriptions lead to higher conversion rates and sales</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-blue-500/20 to-cyan-600/10 border-blue-500/30">
+              <CardContent className="p-6 text-center">
+                <Clock className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Save Time</h3>
+                <div className="text-3xl font-bold text-blue-400 mb-2">95%</div>
+                <p className="text-gray-300">Reduce manual catalog work from hours to minutes with automation</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-purple-500/20 to-pink-600/10 border-purple-500/30">
+              <CardContent className="p-6 text-center">
+                <Lightbulb className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Improve Quality</h3>
+                <div className="text-3xl font-bold text-purple-400 mb-2">99.9%</div>
+                <p className="text-gray-300">Consistent, accurate product information across your entire catalog</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-orange-500/20 to-red-600/10 border-orange-500/30">
+              <CardContent className="p-6 text-center">
+                <Workflow className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Scale Effortlessly</h3>
+                <div className="text-3xl font-bold text-orange-400 mb-2">10x</div>
+                <p className="text-gray-300">Handle growing product catalogs without increasing team size</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-600/10 border-teal-500/30">
+              <CardContent className="p-6 text-center">
+                <Shield className="w-12 h-12 text-teal-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Reduce Errors</h3>
+                <div className="text-3xl font-bold text-teal-400 mb-2">-90%</div>
+                <p className="text-gray-300">AI eliminates human errors in product categorization and tagging</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-yellow-500/20 to-amber-600/10 border-yellow-500/30">
+              <CardContent className="p-6 text-center">
+                <MessageSquare className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-3">Better SEO</h3>
+                <div className="text-3xl font-bold text-yellow-400 mb-2">+60%</div>
+                <p className="text-gray-300">Optimized product descriptions improve search engine rankings</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section id="features" className="px-6 lg:px-8 py-20">
+      <section id="features" className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Powerful Features for Modern Retailers</h2>
@@ -146,7 +338,7 @@ const Index = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="px-6 lg:px-8 py-20 bg-black/20">
+      <section className="px-6 lg:px-8 py-20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12">Trusted by 10,000+ Businesses Worldwide</h2>
           
@@ -214,7 +406,7 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="px-6 lg:px-8 py-20">
+      <section id="pricing" className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
