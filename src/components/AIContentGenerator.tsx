@@ -1,7 +1,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Wand2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles, Wand2, ChevronLeft, ChevronRight, Tag, Filter } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const AIContentGenerator = () => {
@@ -45,6 +46,17 @@ const AIContentGenerator = () => {
     }
   ];
 
+  const aiFilterTags = [
+    { category: "Style", value: "A-Line", confidence: 98 },
+    { category: "Sleeve", value: "Sleeveless", confidence: 95 },
+    { category: "Length", value: "Midi", confidence: 92 },
+    { category: "Neckline", value: "Round Neck", confidence: 89 },
+    { category: "Gender", value: "Women", confidence: 99 },
+    { category: "Season", value: "Summer", confidence: 96 },
+    { category: "Occasion", value: "Casual", confidence: 88 },
+    { category: "Fit", value: "Regular", confidence: 91 }
+  ];
+
   const handleGenerate = () => {
     setIsGenerating(true);
     setCurrentStep(0);
@@ -68,6 +80,13 @@ const AIContentGenerator = () => {
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
+  };
+
+  const getConfidenceColor = (confidence: number) => {
+    if (confidence >= 95) return "bg-[#3BC553]";
+    if (confidence >= 90) return "bg-blue-500";
+    if (confidence >= 85) return "bg-yellow-500";
+    return "bg-orange-500";
   };
 
   return (
@@ -105,7 +124,7 @@ const AIContentGenerator = () => {
 
           {!isGenerating && currentStep > 0 && (
             <div className="grid lg:grid-cols-2 gap-6">
-              {/* Product Image Carousel */}
+              {/* Product Image Carousel with AI Tags */}
               <div className="space-y-4">
                 <label className="text-sm text-gray-400 mb-1 block">Product Images</label>
                 <div className="relative group">
@@ -152,6 +171,47 @@ const AIContentGenerator = () => {
                       ))}
                     </div>
                   )}
+                </div>
+
+                {/* AI Filter Tags */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Filter className="w-4 h-4 text-[#3BC553]" />
+                    <span className="text-sm text-[#3BC553] font-medium">AI-Generated Filter Tags</span>
+                    <Badge className="bg-[#3BC553]/20 text-[#3BC553] text-xs border-[#3BC553]/30">
+                      Auto-detected
+                    </Badge>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    {aiFilterTags.map((tag, index) => (
+                      <div
+                        key={tag.category}
+                        className="group relative p-3 bg-gray-800/50 rounded-lg border border-gray-700/50 hover:border-[#3BC553]/30 transition-all duration-300 cursor-pointer"
+                        style={{ 
+                          animationDelay: `${index * 100}ms`,
+                          animation: 'fade-in 0.5s ease-out forwards'
+                        }}
+                      >
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-xs text-gray-400 font-medium">{tag.category}</span>
+                          <div className={`w-2 h-2 rounded-full ${getConfidenceColor(tag.confidence)}`}></div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-white font-medium">{tag.value}</span>
+                          <span className="text-xs text-gray-500">{tag.confidence}%</span>
+                        </div>
+                        
+                        {/* Hover effect */}
+                        <div className="absolute inset-0 bg-[#3BC553]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="text-xs text-gray-500 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Tags generated using computer vision AI</span>
+                  </div>
                 </div>
               </div>
 
