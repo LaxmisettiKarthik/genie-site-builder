@@ -155,7 +155,132 @@ const AIContentGenerator = () => {
 
           {!isGenerating && currentStep > 0 && (
             <div className="space-y-6">
-              {/* Catalog Scoring Section */}
+              {/* Product Content and Images Section */}
+              <div className="grid lg:grid-cols-2 gap-6">
+                {/* Product Image Carousel */}
+                <div className="space-y-4">
+                  <label className="text-sm text-gray-400 mb-1 block">Product Images</label>
+                  <div className="relative group">
+                    <div className={`w-full h-64 bg-gradient-to-br ${productImages[currentImageIndex].gradient} rounded-lg border border-[#3BC553]/30 flex items-center justify-center overflow-hidden`}>
+                      <img 
+                        src={productImages[currentImageIndex].src}
+                        alt={productImages[currentImageIndex].alt}
+                        className="w-full h-full object-cover transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      
+                      {/* Navigation Arrows */}
+                      {productImages.length > 1 && (
+                        <>
+                          <button
+                            onClick={prevImage}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100"
+                          >
+                            <ChevronLeft className="w-5 h-5" />
+                          </button>
+                          <button
+                            onClick={nextImage}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100"
+                          >
+                            <ChevronRight className="w-5 h-5" />
+                          </button>
+                        </>
+                      )}
+                    </div>
+                    
+                    {/* Image Indicators */}
+                    {productImages.length > 1 && (
+                      <div className="flex justify-center gap-2 mt-3">
+                        {productImages.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentImageIndex(index)}
+                            className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                              index === currentImageIndex 
+                                ? 'bg-[#3BC553] w-6' 
+                                : 'bg-gray-600 hover:bg-gray-500'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* AI Filter Tags - Moved under images */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <Filter className="w-4 h-4 text-[#3BC553]" />
+                      <span className="text-sm text-[#3BC553] font-medium">AI-Generated Filter Tags</span>
+                      <Badge className="bg-[#3BC553]/20 text-[#3BC553] text-xs border-[#3BC553]/30">
+                        Auto-detected
+                      </Badge>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-2">
+                      {aiFilterTags.map((tag, index) => (
+                        <div
+                          key={tag.category}
+                          className="group relative p-3 bg-gray-800/50 rounded-lg border border-gray-700/50 hover:border-[#3BC553]/30 transition-all duration-300 cursor-pointer"
+                          style={{ 
+                            animationDelay: `${index * 100}ms`,
+                            animation: 'fade-in 0.5s ease-out forwards'
+                          }}
+                        >
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-xs text-gray-400 font-medium">{tag.category}</span>
+                            <div className={`w-2 h-2 rounded-full ${getConfidenceColor(tag.confidence)}`}></div>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm text-white font-medium">{tag.value}</span>
+                            <span className="text-xs text-gray-500">{tag.confidence}%</span>
+                          </div>
+                          
+                          {/* Hover effect */}
+                          <div className="absolute inset-0 bg-[#3BC553]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="text-xs text-gray-500 flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      <span>Tags generated using computer vision AI</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Generated Content Section */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-sm text-gray-400 mb-1 block">Product Title</label>
+                    <div className="p-3 bg-gray-800 rounded border border-[#3BC553]/30">
+                      <p className="text-white">{generatedContent.title}</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm text-gray-400 mb-1 block">Description</label>
+                    <div className="p-3 bg-gray-800 rounded border border-[#3BC553]/30">
+                      <p className="text-gray-300 text-sm leading-relaxed">{generatedContent.description}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm text-gray-400 mb-1 block">Key Features</label>
+                    <div className="p-3 bg-gray-800 rounded border border-[#3BC553]/30">
+                      <ul className="space-y-1">
+                        {generatedContent.bullets.map((bullet, index) => (
+                          <li key={index} className="text-gray-300 text-sm flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-[#3BC553] rounded-full"></div>
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Catalog Scoring Section - Moved to bottom */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-[#3BC553]" />
@@ -350,128 +475,18 @@ const AIContentGenerator = () => {
                 </div>
               </div>
 
-              {/* Product Content and Images Section */}
-              <div className="grid lg:grid-cols-2 gap-6">
-                {/* Product Image Carousel */}
-                <div className="space-y-4">
-                  <label className="text-sm text-gray-400 mb-1 block">Product Images</label>
-                  <div className="relative group">
-                    <div className={`w-full h-64 bg-gradient-to-br ${productImages[currentImageIndex].gradient} rounded-lg border border-[#3BC553]/30 flex items-center justify-center overflow-hidden`}>
-                      <img 
-                        src={productImages[currentImageIndex].src}
-                        alt={productImages[currentImageIndex].alt}
-                        className="w-full h-full object-cover transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      
-                      {/* Navigation Arrows */}
-                      {productImages.length > 1 && (
-                        <>
-                          <button
-                            onClick={prevImage}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100"
-                          >
-                            <ChevronLeft className="w-5 h-5" />
-                          </button>
-                          <button
-                            onClick={nextImage}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100"
-                          >
-                            <ChevronRight className="w-5 h-5" />
-                          </button>
-                        </>
-                      )}
-                    </div>
-                    
-                    {/* Image Indicators */}
-                    {productImages.length > 1 && (
-                      <div className="flex justify-center gap-2 mt-3">
-                        {productImages.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentImageIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                              index === currentImageIndex 
-                                ? 'bg-[#3BC553] w-6' 
-                                : 'bg-gray-600 hover:bg-gray-500'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    )}
+              {/* AI Product Tagging Description - Moved to bottom */}
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-[#3BC553]/20">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#3BC553]/20 rounded-lg flex items-center justify-center">
+                    <Tag className="w-5 h-5 text-[#3BC553]" />
                   </div>
-                </div>
-
-                {/* Generated Content Section */}
-                <div className="space-y-4">
                   <div>
-                    <label className="text-sm text-gray-400 mb-1 block">Product Title</label>
-                    <div className="p-3 bg-gray-800 rounded border border-[#3BC553]/30">
-                      <p className="text-white">{generatedContent.title}</p>
-                    </div>
+                    <h4 className="text-white font-medium mb-1">AI Product Tagging</h4>
+                    <p className="text-gray-400 text-sm">
+                      Our AI instantly identifies and tags your products with relevant categories, attributes, and metadata.
+                    </p>
                   </div>
-                  
-                  <div>
-                    <label className="text-sm text-gray-400 mb-1 block">Description</label>
-                    <div className="p-3 bg-gray-800 rounded border border-[#3BC553]/30">
-                      <p className="text-gray-300 text-sm leading-relaxed">{generatedContent.description}</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-sm text-gray-400 mb-1 block">Key Features</label>
-                    <div className="p-3 bg-gray-800 rounded border border-[#3BC553]/30">
-                      <ul className="space-y-1">
-                        {generatedContent.bullets.map((bullet, index) => (
-                          <li key={index} className="text-gray-300 text-sm flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-[#3BC553] rounded-full"></div>
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* AI Filter Tags - Moved to Bottom */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Filter className="w-4 h-4 text-[#3BC553]" />
-                  <span className="text-sm text-[#3BC553] font-medium">AI-Generated Filter Tags</span>
-                  <Badge className="bg-[#3BC553]/20 text-[#3BC553] text-xs border-[#3BC553]/30">
-                    Auto-detected
-                  </Badge>
-                </div>
-                
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                  {aiFilterTags.map((tag, index) => (
-                    <div
-                      key={tag.category}
-                      className="group relative p-3 bg-gray-800/50 rounded-lg border border-gray-700/50 hover:border-[#3BC553]/30 transition-all duration-300 cursor-pointer"
-                      style={{ 
-                        animationDelay: `${index * 100}ms`,
-                        animation: 'fade-in 0.5s ease-out forwards'
-                      }}
-                    >
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs text-gray-400 font-medium">{tag.category}</span>
-                        <div className={`w-2 h-2 rounded-full ${getConfidenceColor(tag.confidence)}`}></div>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-white font-medium">{tag.value}</span>
-                        <span className="text-xs text-gray-500">{tag.confidence}%</span>
-                      </div>
-                      
-                      {/* Hover effect */}
-                      <div className="absolute inset-0 bg-[#3BC553]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="text-xs text-gray-500 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  <span>Tags generated using computer vision AI</span>
                 </div>
               </div>
             </div>
