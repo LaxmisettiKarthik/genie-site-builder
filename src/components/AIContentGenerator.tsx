@@ -1,12 +1,13 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Wand2 } from "lucide-react";
+import { Sparkles, Wand2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const AIContentGenerator = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const generationSteps = [
     "Analyzing product image...",
@@ -26,9 +27,28 @@ const AIContentGenerator = () => {
     ]
   };
 
+  const productImages = [
+    {
+      src: "/placeholder.svg",
+      alt: "Summer Dress - Main View",
+      gradient: "from-purple-500/20 to-pink-500/20"
+    },
+    {
+      src: "/placeholder.svg", 
+      alt: "Summer Dress - Side View",
+      gradient: "from-blue-500/20 to-cyan-500/20"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Summer Dress - Detail View", 
+      gradient: "from-green-500/20 to-emerald-500/20"
+    }
+  ];
+
   const handleGenerate = () => {
     setIsGenerating(true);
     setCurrentStep(0);
+    setCurrentImageIndex(0);
     
     const interval = setInterval(() => {
       setCurrentStep(prev => {
@@ -40,6 +60,14 @@ const AIContentGenerator = () => {
         return prev + 1;
       });
     }, 800);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
   };
 
   return (
@@ -77,52 +105,53 @@ const AIContentGenerator = () => {
 
           {!isGenerating && currentStep > 0 && (
             <div className="grid lg:grid-cols-2 gap-6">
-              {/* Product Images Section */}
+              {/* Product Image Carousel */}
               <div className="space-y-4">
                 <label className="text-sm text-gray-400 mb-1 block">Product Images</label>
-                <div className="space-y-3">
-                  {/* Main product image */}
-                  <div className="relative group">
-                    <div className="w-full h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg border border-[#3BC553]/30 flex items-center justify-center overflow-hidden">
-                      <img 
-                        src="/placeholder.svg" 
-                        alt="Summer Dress - Main View"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </div>
+                <div className="relative group">
+                  <div className={`w-full h-64 bg-gradient-to-br ${productImages[currentImageIndex].gradient} rounded-lg border border-[#3BC553]/30 flex items-center justify-center overflow-hidden`}>
+                    <img 
+                      src={productImages[currentImageIndex].src}
+                      alt={productImages[currentImageIndex].alt}
+                      className="w-full h-full object-cover transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    
+                    {/* Navigation Arrows */}
+                    {productImages.length > 1 && (
+                      <>
+                        <button
+                          onClick={prevImage}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100"
+                        >
+                          <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={nextImage}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100"
+                        >
+                          <ChevronRight className="w-5 h-5" />
+                        </button>
+                      </>
+                    )}
                   </div>
                   
-                  {/* Secondary product images */}
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="relative group">
-                      <div className="w-full h-20 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded border border-[#3BC553]/30 flex items-center justify-center overflow-hidden">
-                        <img 
-                          src="/placeholder.svg" 
-                          alt="Summer Dress - Side View"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  {/* Image Indicators */}
+                  {productImages.length > 1 && (
+                    <div className="flex justify-center gap-2 mt-3">
+                      {productImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                            index === currentImageIndex 
+                              ? 'bg-[#3BC553] w-6' 
+                              : 'bg-gray-600 hover:bg-gray-500'
+                          }`}
                         />
-                      </div>
+                      ))}
                     </div>
-                    <div className="relative group">
-                      <div className="w-full h-20 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded border border-[#3BC553]/30 flex items-center justify-center overflow-hidden">
-                        <img 
-                          src="/placeholder.svg" 
-                          alt="Summer Dress - Detail View"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    </div>
-                    <div className="relative group">
-                      <div className="w-full h-20 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded border border-[#3BC553]/30 flex items-center justify-center overflow-hidden">
-                        <img 
-                          src="/placeholder.svg" 
-                          alt="Summer Dress - Back View"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
 
