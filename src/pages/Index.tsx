@@ -6,11 +6,11 @@ import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle } from "luc
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
       {/* Navigation */}
       <nav className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
             <Sparkles className="w-5 h-5 text-white" />
           </div>
           <span className="text-xl font-bold text-white">Catalog Genie</span>
@@ -19,7 +19,7 @@ const Index = () => {
           <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
           <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
           <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-          <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white">
+          <Button variant="outline" className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white">
             Sign In
           </Button>
         </div>
@@ -28,19 +28,19 @@ const Index = () => {
       {/* Hero Section */}
       <section className="px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-4xl mx-auto text-center">
-          <Badge className="mb-6 bg-purple-500/20 text-purple-300 border-purple-500/30">
+          <Badge className="mb-6 bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30">
             ✨ AI-Powered Catalog Management
           </Badge>
           <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Transform Your
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"> Product Catalogs </span>
+            <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Product Catalogs </span>
             with AI Magic
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
             Generate stunning product descriptions, optimize images, and manage your entire catalog with the power of artificial intelligence. Save hours of work while boosting conversions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg">
+            <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg">
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -65,9 +65,9 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">AI Content Generation</h3>
@@ -77,9 +77,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">Smart Organization</h3>
@@ -89,9 +89,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center mb-4">
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">Team Collaboration</h3>
@@ -189,15 +189,15 @@ const Index = () => {
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
                     Up to 1,000 products
                   </li>
                   <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
                     AI content generation
                   </li>
                   <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
                     Basic templates
                   </li>
                 </ul>
@@ -205,7 +205,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 scale-105">
+            <Card className="bg-[#3BC553] border-[#3BC553] scale-105">
               <CardContent className="p-8">
                 <div className="text-center mb-4">
                   <Badge className="bg-white/20 text-white">Most Popular</Badge>
@@ -232,7 +232,7 @@ const Index = () => {
                     Priority support
                   </li>
                 </ul>
-                <Button className="w-full bg-white text-purple-600 hover:bg-gray-100">Get Started</Button>
+                <Button className="w-full bg-white text-[#3BC553] hover:bg-gray-100">Get Started</Button>
               </CardContent>
             </Card>
 
@@ -244,15 +244,15 @@ const Index = () => {
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
                     Unlimited products
                   </li>
                   <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
                     Custom integrations
                   </li>
                   <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
                     Dedicated support
                   </li>
                 </ul>
@@ -270,7 +270,7 @@ const Index = () => {
           <p className="text-xl text-gray-300 mb-8">
             Join thousands of businesses already using Catalog Genie to streamline their product management.
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg">
+          <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg">
             Start Your Free Trial
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
@@ -282,7 +282,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-white">Catalog Genie</span>
