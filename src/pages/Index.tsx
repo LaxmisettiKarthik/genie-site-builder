@@ -1,8 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle } from "lucide-react";
+import ProductTaggingDemo from "@/components/ProductTaggingDemo";
+import AIContentGenerator from "@/components/AIContentGenerator";
+import RetailDashboard from "@/components/RetailDashboard";
 
 const Index = () => {
   return (
@@ -17,6 +19,7 @@ const Index = () => {
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
+          <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
           <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
           <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
           <Button variant="outline" className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white">
@@ -54,11 +57,49 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="px-6 lg:px-8 py-20 bg-black/20">
+      {/* AI Demo Section */}
+      <section id="demo" className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Powerful Features for Modern Businesses</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">See AI in Action</h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Watch how our AI automatically tags products and generates compelling content for your retail business.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">AI Product Tagging</h3>
+              <p className="text-gray-300 mb-6">
+                Our AI instantly identifies and tags your products with relevant categories, attributes, and metadata.
+              </p>
+              <ProductTaggingDemo />
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">Content Generation</h3>
+              <p className="text-gray-300 mb-6">
+                Generate compelling product titles, descriptions, and bullet points that convert visitors into customers.
+              </p>
+              <AIContentGenerator />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-4 text-center">Real-Time Analytics Dashboard</h3>
+            <p className="text-gray-300 mb-6 text-center max-w-2xl mx-auto">
+              Track your AI-powered catalog optimization with detailed metrics and insights.
+            </p>
+            <RetailDashboard />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="px-6 lg:px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Powerful Features for Modern Retailers</h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Everything you need to create, manage, and optimize your product catalogs with AI assistance.
             </p>
@@ -105,7 +146,7 @@ const Index = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="px-6 lg:px-8 py-20">
+      <section className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12">Trusted by 10,000+ Businesses Worldwide</h2>
           
@@ -173,7 +214,7 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="px-6 lg:px-8 py-20 bg-black/20">
+      <section id="pricing" className="px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
