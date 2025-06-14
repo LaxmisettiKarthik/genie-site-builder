@@ -5,10 +5,8 @@ import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, Tre
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
+  return <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
       {/* Navigation */}
       <nav className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex items-center space-x-2">
@@ -191,13 +189,7 @@ const Index = () => {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4">AI Product Tagging</h3>
-              <p className="text-gray-300 mb-6">
-                Our AI instantly identifies and tags your products with relevant categories, attributes, and metadata.
-              </p>
-              <ProductTaggingDemo />
-            </div>
+            
             
             <div>
               <h3 className="text-2xl font-bold text-white mb-4">Content Generation</h3>
@@ -345,9 +337,7 @@ const Index = () => {
             <Card className="bg-gray-900/30 border-gray-700">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />)}
                 </div>
                 <p className="text-gray-300 mb-4">
                   "Catalog Genie transformed our product management workflow. We're now processing 10x more products in half the time."
@@ -365,9 +355,7 @@ const Index = () => {
             <Card className="bg-gray-900/30 border-gray-700">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />)}
                 </div>
                 <p className="text-gray-300 mb-4">
                   "The AI descriptions are incredibly accurate and engaging. Our conversion rates increased by 40% since switching."
@@ -525,8 +513,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
