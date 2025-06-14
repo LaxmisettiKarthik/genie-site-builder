@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -88,30 +87,30 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-red-900/20 border-red-500/30">
+            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300">
               <CardContent className="p-6 text-center">
-                <Clock className="w-12 h-12 text-red-400 mx-auto mb-4" />
+                <Clock className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Time Consuming</h3>
                 <p className="text-gray-300 mb-4">Teams spend 40+ hours weekly on manual product tagging and description writing</p>
-                <div className="text-2xl font-bold text-red-400">40+ hrs/week</div>
+                <div className="text-2xl font-bold text-[#3BC553]">40+ hrs/week</div>
               </CardContent>
             </Card>
 
-            <Card className="bg-orange-900/20 border-orange-500/30">
+            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300">
               <CardContent className="p-6 text-center">
-                <Eye className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+                <Eye className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Human Error</h3>
                 <p className="text-gray-300 mb-4">Manual processes lead to inconsistent tagging and missed product attributes</p>
-                <div className="text-2xl font-bold text-orange-400">30% Error Rate</div>
+                <div className="text-2xl font-bold text-[#3BC553]">30% Error Rate</div>
               </CardContent>
             </Card>
 
-            <Card className="bg-yellow-900/20 border-yellow-500/30">
+            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300">
               <CardContent className="p-6 text-center">
-                <TrendingUp className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                <TrendingUp className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Scaling Issues</h3>
                 <p className="text-gray-300 mb-4">Growing product catalogs overwhelm manual processes and team capacity</p>
-                <div className="text-2xl font-bold text-yellow-400">Can't Scale</div>
+                <div className="text-2xl font-bold text-[#3BC553]">Can't Scale</div>
               </CardContent>
             </Card>
           </div>
