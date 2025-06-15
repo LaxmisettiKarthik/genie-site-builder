@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +6,7 @@ import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
 import { useState } from "react";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
@@ -415,45 +415,11 @@ const Index = () => {
 
       {/* Social Proof */}
       <section className="px-6 lg:px-8 py-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12">Trusted by 10,000+ Businesses Worldwide</h2>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <Card className="bg-gray-900/30 border-gray-700">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />)}
-                </div>
-                <p className="text-gray-300 mb-4">
-                  "Catalog Genie transformed our product management workflow. We're now processing 10x more products in half the time."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-3"></div>
-                  <div>
-                    <div className="text-white font-semibold">Sarah Chen</div>
-                    <div className="text-gray-400 text-sm">E-commerce Director, TechFlow</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900/30 border-gray-700">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />)}
-                </div>
-                <p className="text-gray-300 mb-4">
-                  "The AI descriptions are incredibly accurate and engaging. Our conversion rates increased by 40% since switching."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3"></div>
-                  <div>
-                    <div className="text-white font-semibold">Marcus Rodriguez</div>
-                    <div className="text-gray-400 text-sm">Founder, RetailMax</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="mb-16">
+            <TestimonialCarousel />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
