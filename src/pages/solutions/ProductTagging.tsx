@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Package, Zap, Clock, Target, CheckCircle, Eye, Brain, Sparkles, MousePointer } from "lucide-react";
+import { ArrowRight, Package, Zap, Clock, Target, CheckCircle, Eye, Brain, Sparkles, MousePointer, PlayCircle } from "lucide-react";
 import InteractiveProductCard from "@/components/InteractiveProductCard";
 import FloatingParticles from "@/components/FloatingParticles";
 import TaggingMetrics from "@/components/TaggingMetrics";
@@ -202,8 +202,8 @@ const ProductTagging = () => {
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button size="lg" variant="outline" onClick={handleDemoClick} className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg transform hover:scale-105 transition-all">
-                <MousePointer className="mr-2 w-5 h-5" />
+              <Button size="lg" variant="outline" onClick={handleDemoClick} className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg transform hover:scale-105 transition-all group">
+                <PlayCircle className="mr-2 w-5 h-5 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
                 Feel It
               </Button>
             </div>
