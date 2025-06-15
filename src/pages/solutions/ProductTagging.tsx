@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +24,7 @@ const ProductTagging = () => {
     }, 100);
   };
   const sampleProducts = [{
-    image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    image: "url('/lovable-uploads/ad5fb726-5b49-495a-96b1-53241a4c3719.png')",
     title: "Summer Dress",
     tags: [{
       label: "Summer",
@@ -55,7 +56,7 @@ const ProductTagging = () => {
       delay: 1700
     }]
   }, {
-    image: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    image: "url('/lovable-uploads/de09dc01-b8d3-4d2b-9bb1-58776a23d59b.png')",
     title: "Sport Shoes",
     tags: [{
       label: "Athletic",
@@ -83,7 +84,7 @@ const ProductTagging = () => {
       delay: 2100
     }]
   }, {
-    image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+    image: "url('/lovable-uploads/3ef5bc4b-c86f-45e8-ab71-bcb667457334.png')",
     title: "Leather Jacket",
     tags: [{
       label: "Leather",
@@ -107,7 +108,7 @@ const ProductTagging = () => {
       delay: 1900
     }]
   }, {
-    image: "linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%)",
+    image: "url('/lovable-uploads/d70d254c-8ae8-4e87-818e-0459cfb8cdb1.png')",
     title: "Cosmetics Set",
     tags: [{
       label: "Cosmetics",
