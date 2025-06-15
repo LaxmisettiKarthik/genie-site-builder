@@ -8,7 +8,7 @@ import AnimatedNumber from "./AnimatedNumber";
 
 const RetailDashboard = () => {
   const [showAnalyticsDemo, setShowAnalyticsDemo] = useState(false);
-  const [isActivityExpanded, setIsActivityExpanded] = useState(false);
+  const [isActivityExpanded, setIsActivityExpanded] = useState(true);
   const [interactionCount, setInteractionCount] = useState(0);
 
   // Simulate real-time updates based on interactions
@@ -220,26 +220,27 @@ const RetailDashboard = () => {
             </Button>
           </div>
         </CardHeader>
-        <CardContent className="p-6 pt-0">
-          <div className="space-y-3">
-            {/* Show different number of items based on expanded state */}
-            {(isActivityExpanded ? recentActivity : recentActivity.slice(0, 3)).map((activity, index) => (
-              <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
-                  <div>
-                    <span className="text-white text-sm font-medium">{activity.action}</span>
-                    <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
+        {isActivityExpanded && (
+          <CardContent className="p-6 pt-0">
+            <div className="space-y-3">
+              {recentActivity.map((activity, index) => (
+                <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
+                    <div>
+                      <span className="text-white text-sm font-medium">{activity.action}</span>
+                      <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
+                    <div className="text-gray-400 text-xs">{activity.time}</div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
-                  <div className="text-gray-400 text-xs">{activity.time}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
+              ))}
+            </div>
+          </CardContent>
+        )}
       </Card>
     </div>
   );
