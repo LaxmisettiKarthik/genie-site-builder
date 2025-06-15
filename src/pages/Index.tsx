@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +11,7 @@ import { useState, useEffect } from "react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import BusinessResults from "@/components/BusinessResults";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import LogoCloud from "@/components/LogoCloud";
 
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
@@ -77,6 +79,11 @@ const Index = () => {
                 {showAIDemo ? "Hide Demo" : "Feel it"}
                 <Sparkles className="ml-2 w-5 h-5" />
               </Button>
+            </div>
+
+            {/* Logo Cloud */}
+            <div className="mt-16">
+              <LogoCloud />
             </div>
 
             {/* AI Demo Section - Shown when button is clicked */}
