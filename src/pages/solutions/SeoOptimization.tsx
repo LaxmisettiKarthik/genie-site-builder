@@ -203,7 +203,7 @@ const SeoOptimization = () => {
                                     <div className="flex items-center justify-between mb-4">
                                         <p className="text-gray-100">Product: "Men's Jacket"</p>
                                         <Button onClick={handleGenerateContent} disabled={isGenerating} className="bg-[#3BC553] hover:bg-green-600 text-white">
-                                            {isGenerating ? "Generating..." : "Generate & Boost SEO"}
+                                            {isGenerating ? "Generating..." : "Feel it"}
                                             <Sparkles className="ml-2 w-4 h-4"/>
                                         </Button>
                                     </div>
