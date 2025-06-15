@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,10 +20,10 @@ const HighlightedGeneratedContent = ({ content }: { content: string }) => {
                 const lineParts = line.split(boldRegex);
 
                 return (
-                    <p key={lineIndex}>
+                    <p key={lineIndex} className="text-gray-100">
                         {lineParts.map((part, partIndex) => {
                             if (part.startsWith('**') && part.endsWith('**')) {
-                                return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
+                                return <strong key={partIndex} className="text-white">{part.slice(2, -2)}</strong>;
                             }
 
                             const highlightedSubParts = part.split(highlightRegex);
@@ -45,21 +46,11 @@ const HighlightedGeneratedContent = ({ content }: { content: string }) => {
 };
 
 const SeoOptimization = () => {
-    const [seoScore, setSeoScore] = useState(65);
+    const [seoScore, setSeoScore] = useState(36);
     const [initialSeoScore, setInitialSeoScore] = useState<number | null>(null);
     const [isGenerating, setIsGenerating] = useState(false);
     const [generatedContent, setGeneratedContent] = useState("");
     const [generationCompleted, setGenerationCompleted] = useState(false);
-
-    useEffect(() => {
-        if (!isGenerating) {
-            const timer = setTimeout(() => {
-                const newScore = Math.floor(Math.random() * (95 - 75 + 1) + 75);
-                setSeoScore(newScore);
-            }, 1000);
-            return () => clearTimeout(timer);
-        }
-    }, [isGenerating, seoScore]);
 
     const handleGenerateContent = () => {
         setIsGenerating(true);
@@ -83,8 +74,7 @@ const SeoOptimization = () => {
             } else {
                 clearInterval(interval);
                 setGeneratedContent(prev => prev + "\n" + `**Generated Content:**\n\n**Title:** Premium All-Weather Men's Performance Jacket\n\n**Description:** Discover the ultimate blend of style and functionality with our Premium All-Weather Performance Jacket. Engineered for the modern man, this jacket provides superior protection against wind and rain while maintaining breathability. Perfect for urban exploration or mountain trails, its sleek design is enhanced with SEO-rich keywords like 'waterproof men's jacket', 'breathable outerwear', and 'lightweight technical coat' to boost online discoverability. Elevate your wardrobe and your search ranking today!`);
-                const scoreBoost = Math.floor(Math.random() * (15 - 8 + 1) + 8);
-                setSeoScore(prevScore => Math.min(prevScore + scoreBoost, 98));
+                setSeoScore(98);
                 setIsGenerating(false);
                 setGenerationCompleted(true);
             }
@@ -157,7 +147,7 @@ const SeoOptimization = () => {
                                         <div className="w-16 h-16 bg-[#3BC553]/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-[#3BC553]/30">
                                             <Icon className="w-8 h-8 text-[#3BC553]" />
                                         </div>
-                                        <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                                        <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
                                         <p className="text-gray-300 text-sm">{feature.description}</p>
                                     </CardContent>
                                 </Card>
@@ -177,14 +167,14 @@ const SeoOptimization = () => {
                             </p>
                             <Card className="bg-white/[.05] border-white/[.10]">
                                 <CardHeader>
-                                    <CardTitle className="flex items-center gap-2">
+                                    <CardTitle className="flex items-center gap-2 text-gray-100">
                                         <Bot className="text-[#3BC553]" />
                                         AI Content Generator
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="flex items-center justify-between mb-4">
-                                        <p>Product: "Men's Jacket"</p>
+                                        <p className="text-gray-100">Product: "Men's Jacket"</p>
                                         <Button onClick={handleGenerateContent} disabled={isGenerating} className="bg-[#3BC553] hover:bg-green-600 text-white">
                                             {isGenerating ? "Generating..." : "Generate & Boost SEO"}
                                             <Sparkles className="ml-2 w-4 h-4"/>
