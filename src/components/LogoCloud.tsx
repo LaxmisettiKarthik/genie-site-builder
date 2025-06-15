@@ -24,15 +24,15 @@ const LogoCloud = () => {
             Trusted by leading eCommerce platforms
           </p>
           
-          {/* Animated scrolling container */}
+          {/* Fixed animated scrolling container with proper spacing */}
           <div className="relative overflow-hidden py-4">
             <div className="flex animate-scroll">
-              {/* First set of logos */}
-              <div className="flex items-center justify-center min-w-full">
+              {/* First set of logos with increased spacing */}
+              <div className="flex items-center justify-center min-w-full gap-12">
                 {platforms.map((platform, index) => (
                   <span
                     key={`first-${platform}`}
-                    className="text-xl text-gray-500 transition-all duration-300 hover:text-white hover:scale-110 cursor-pointer font-medium mx-8 whitespace-nowrap"
+                    className="text-xl text-gray-500 transition-all duration-300 hover:text-white hover:scale-110 cursor-pointer font-medium whitespace-nowrap flex-shrink-0"
                     style={{
                       animationDelay: `${index * 0.2}s`,
                     }}
@@ -42,12 +42,12 @@ const LogoCloud = () => {
                 ))}
               </div>
               
-              {/* Duplicate set for seamless loop */}
-              <div className="flex items-center justify-center min-w-full">
+              {/* Duplicate set for seamless loop with same spacing */}
+              <div className="flex items-center justify-center min-w-full gap-12">
                 {platforms.map((platform, index) => (
                   <span
                     key={`second-${platform}`}
-                    className="text-xl text-gray-500 transition-all duration-300 hover:text-white hover:scale-110 cursor-pointer font-medium mx-8 whitespace-nowrap"
+                    className="text-xl text-gray-500 transition-all duration-300 hover:text-white hover:scale-110 cursor-pointer font-medium whitespace-nowrap flex-shrink-0"
                     style={{
                       animationDelay: `${index * 0.2}s`,
                     }}

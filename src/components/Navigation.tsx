@@ -91,12 +91,11 @@ const Navigation = () => {
           </NavigationMenuList>
         </NavigationMenu>
         
-        <a href="/#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
         <a href="/#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
         <a href="/#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
         <a href="/#about" className="text-gray-300 hover:text-white transition-colors">About</a>
         <Button variant="outline" className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white">
-          Sign In
+          Book a Free Call
         </Button>
       </div>
     </nav>

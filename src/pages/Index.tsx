@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -55,8 +54,8 @@ const Index = () => {
       {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="px-6 lg:px-8 py-24 lg:py-32">
+      {/* Hero Section - consistent py-32 spacing */}
+      <section className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             
@@ -124,8 +123,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="px-6 lg:px-8 py-24">
+      {/* Problem Section - consistent py-32 spacing */}
+      <section className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">The Manual Catalog Challenge</h2>
@@ -146,7 +145,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300">
+            <Card className="bg-[#231F20]/80 border-[#3BC53]/30 hover:border-[#3BC553]/50 transition-all duration-300">
               <CardContent className="p-6 text-center">
                 <Eye className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Human Error</h3>
@@ -169,8 +168,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Solution Infographic */}
-      <section className="px-6 lg:px-8 py-24">
+      {/* Solution Infographic - consistent py-32 spacing */}
+      <section className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Solution</h2>
@@ -179,7 +178,7 @@ const Index = () => {
             </p>
           </div>
 
-          {/* YouTube Video Demo */}
+          {/* YouTube Video Demo with updated link */}
           <div className="mb-16">
             <div className="max-w-4xl mx-auto">
               <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30">
@@ -188,7 +187,7 @@ const Index = () => {
                   See how Catalog Genie transforms your product management workflow
                 </p>
                 <div className="relative aspect-video rounded-lg overflow-hidden">
-                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" title="Catalog Genie Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0 w-full h-full"></iframe>
+                  <iframe src="https://www.youtube.com/embed/yYDFBXxQhg0?autoplay=1&mute=1" title="Catalog Genie Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0 w-full h-full"></iframe>
                 </div>
               </div>
             </div>
@@ -248,7 +247,7 @@ const Index = () => {
       </section>
 
       {/* AI Demo Section - Updated to show only dashboard */}
-      <section id="demo" className="px-6 lg:px-8 py-24">
+      <section id="demo" className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Real-Time Analytics Dashboard</h2>
@@ -261,13 +260,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Transform Business Results Section */}
-      <section className="px-6 lg:px-8 py-24">
+      {/* Transform Business Results Section - consistent py-32 spacing */}
+      <section className="px-6 lg:px-8 py-32">
         <BusinessResults />
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="px-6 lg:px-8 py-24">
+      {/* Features Section - consistent py-32 spacing */}
+      <section id="features" className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Powerful Features for Modern Retailers</h2>
@@ -316,8 +315,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="px-6 lg:px-8 py-24">
+      {/* Social Proof - consistent py-32 spacing */}
+      <section className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12">Trusted by 10,000+ Businesses Worldwide</h2>
           
@@ -352,8 +351,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="px-6 lg:px-8 py-24">
+      {/* Pricing Section - consistent py-32 spacing */}
+      <section id="pricing" className="px-6 lg:px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
@@ -443,8 +442,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="px-6 lg:px-8 py-24">
+      {/* CTA Section - consistent py-32 spacing */}
+      <section className="px-6 lg:px-8 py-32">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Catalog?</h2>
           <p className="text-xl text-gray-300 mb-8">
