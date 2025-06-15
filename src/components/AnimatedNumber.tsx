@@ -7,7 +7,7 @@ interface AnimatedNumberProps {
   className?: string;
 }
 
-const AnimatedNumber = ({ value, duration = 3500, className }: AnimatedNumberProps) => {
+const AnimatedNumber = ({ value, duration = 1500, className }: AnimatedNumberProps) => {
   const [displayValue, setDisplayValue] = useState("0");
   const [isAnimating, setIsAnimating] = useState(true);
 
@@ -33,9 +33,9 @@ const AnimatedNumber = ({ value, duration = 3500, className }: AnimatedNumberPro
       const progress = Math.min(elapsed / duration, 1);
       
       if (progress < 1) {
-        // Slower animation with smoother progression
-        const easeOutQuart = 1 - Math.pow(1 - progress, 3);
-        const randomFactor = (1 - progress) * 0.1; // Further reduced randomness
+        // Smoother and faster animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 2);
+        const randomFactor = (1 - progress) * 0.05; // Reduced randomness
         const randomVariation = (Math.random() - 0.5) * randomFactor * targetNumber;
         const currentValue = targetNumber * easeOutQuart + randomVariation;
         
@@ -52,15 +52,15 @@ const AnimatedNumber = ({ value, duration = 3500, className }: AnimatedNumberPro
       }
     };
 
-    // Start animation with a longer delay for better visual effect
-    const startDelay = Math.random() * 400;
+    // Reduced start delay for faster animation
+    const startDelay = Math.random() * 200;
     setTimeout(() => {
       animate();
     }, startDelay);
   }, [value, duration]);
 
   return (
-    <span className={`${className} ${isAnimating ? 'text-[#3BC553] scale-105' : ''} transition-all duration-500`}>
+    <span className={`${className} ${isAnimating ? 'text-[#3BC553] scale-105' : ''} transition-all duration-300`}>
       {displayValue}
     </span>
   );

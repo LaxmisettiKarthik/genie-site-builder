@@ -126,7 +126,7 @@ const RetailDashboard = () => {
                         <AnimatedNumber 
                           value={item.value} 
                           key={`${item.metric}-${interactionCount}`}
-                          duration={2500}
+                          duration={1200}
                         />
                         {item.suffix && <span>{item.suffix}</span>}
                       </div>
@@ -184,7 +184,7 @@ const RetailDashboard = () => {
                   <AnimatedNumber 
                     value={metric.value} 
                     key={`${metric.label}-${interactionCount}`}
-                    duration={3000}
+                    duration={1200}
                   />
                   {metric.suffix && <span>{metric.suffix}</span>}
                 </div>
@@ -203,10 +203,7 @@ const RetailDashboard = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => {
-                setIsActivityExpanded(!isActivityExpanded);
-                handleInteraction();
-              }}
+              onClick={() => setIsActivityExpanded(!isActivityExpanded)}
               className="text-gray-400 hover:text-white"
             >
               {isActivityExpanded ? (
@@ -225,41 +222,22 @@ const RetailDashboard = () => {
         </CardHeader>
         <CardContent className="p-6 pt-0">
           <div className="space-y-3">
-            {isActivityExpanded ? (
-              // Show all 6 items when expanded
-              recentActivity.map((activity, index) => (
-                <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
-                    <div>
-                      <span className="text-white text-sm font-medium">{activity.action}</span>
-                      <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
-                    <div className="text-gray-400 text-xs">{activity.time}</div>
+            {/* Show different number of items based on expanded state */}
+            {(isActivityExpanded ? recentActivity : recentActivity.slice(0, 3)).map((activity, index) => (
+              <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
+                  <div>
+                    <span className="text-white text-sm font-medium">{activity.action}</span>
+                    <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
                   </div>
                 </div>
-              ))
-            ) : (
-              // Show only first 3 items when collapsed
-              recentActivity.slice(0, 3).map((activity, index) => (
-                <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
-                    <div>
-                      <span className="text-white text-sm font-medium">{activity.action}</span>
-                      <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
-                    <div className="text-gray-400 text-xs">{activity.time}</div>
-                  </div>
+                <div className="text-right">
+                  <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
+                  <div className="text-gray-400 text-xs">{activity.time}</div>
                 </div>
-              ))
-            )}
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>
