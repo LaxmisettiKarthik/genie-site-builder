@@ -60,7 +60,7 @@ const Navigation = () => {
                 Solutions
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid gap-3 p-6 w-[500px] bg-gray-900 border-gray-700">
+                <div className="grid gap-3 p-6 w-[500px] bg-[#161B22] border border-gray-700 rounded-md">
                   {solutions.map((solution) => {
                     const Icon = solution.icon;
                     return (
