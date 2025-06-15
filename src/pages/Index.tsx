@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,18 +12,28 @@ import BusinessResults from "@/components/BusinessResults";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import LogoCloud from "@/components/LogoCloud";
 import FloatingParticles from "@/components/FloatingParticles";
-
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
   const [heroStatsKey, setHeroStatsKey] = useState(0);
 
   // Hero stats that update when demo is toggled
-  const [heroStats, setHeroStats] = useState([
-    { value: "95", label: "Time Saved", suffix: "%" },
-    { value: "10", label: "Faster Processing", suffix: "x" },
-    { value: "99.9", label: "Accuracy Rate", suffix: "%" },
-    { value: "24/7", label: "Automated Processing", suffix: "" }
-  ]);
+  const [heroStats, setHeroStats] = useState([{
+    value: "95",
+    label: "Time Saved",
+    suffix: "%"
+  }, {
+    value: "10",
+    label: "Faster Processing",
+    suffix: "x"
+  }, {
+    value: "99.9",
+    label: "Accuracy Rate",
+    suffix: "%"
+  }, {
+    value: "24/7",
+    label: "Automated Processing",
+    suffix: ""
+  }]);
 
   // Update hero stats when demo is shown
   useEffect(() => {
@@ -34,29 +43,32 @@ const Index = () => {
           if (stat.suffix === "%") {
             const current = parseFloat(stat.value);
             const newValue = Math.min(99.9, current + Math.random() * 2);
-            return { ...stat, value: newValue.toFixed(1) };
+            return {
+              ...stat,
+              value: newValue.toFixed(1)
+            };
           } else if (stat.suffix === "x") {
             const current = parseInt(stat.value);
             const newValue = current + Math.floor(Math.random() * 2) + 1;
-            return { ...stat, value: newValue.toString() };
+            return {
+              ...stat,
+              value: newValue.toString()
+            };
           }
           return stat;
         }));
         setHeroStatsKey(prev => prev + 1);
       }, 1000);
-
       return () => clearTimeout(timer);
     }
   }, [showAIDemo]);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+  return <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
       <FloatingParticles />
       {/* Navigation */}
       <Navigation />
 
       {/* Hero Section - consistent py-24 spacing */}
-      <section className="px-6 lg:px-8 py-24">
+      <section className="lg:px-8 py-0 px-[24px]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             
@@ -65,32 +77,33 @@ const Index = () => {
               <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Management </span>
               with AI Intelligence
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               Transform manual catalog work into automated intelligence. Our AI automatically tags products, generates compelling descriptions, and optimizes your entire catalog in seconds - not hours.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/25">
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/25" 
-                onClick={() => setShowAIDemo(!showAIDemo)}
-              >
+              <Button size="lg" className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/25" onClick={() => setShowAIDemo(!showAIDemo)}>
                 {showAIDemo ? "Hide Demo" : "Feel it"}
                 <Sparkles className="ml-2 w-5 h-5 animate-pulse" />
               </Button>
             </div>
 
             {/* Logo Cloud */}
-            <div className="mt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="mt-16 animate-fade-in" style={{
+            animationDelay: '0.6s'
+          }}>
               <LogoCloud />
             </div>
 
             {/* AI Demo Section - Shown when button is clicked */}
-            {showAIDemo && (
-              <div className="mt-12 mb-12 animate-scale-in">
+            {showAIDemo && <div className="mt-12 mb-12 animate-scale-in">
                 <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-[1.02]">
                   <h3 className="text-2xl font-bold text-white mb-4">AI Content Generation Demo</h3>
                   <p className="text-gray-300 mb-6">
@@ -102,30 +115,23 @@ const Index = () => {
                   <div className="mt-8">
                     <h4 className="text-xl font-bold text-white mb-6 text-center">Catalog Performance Metrics</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                      {heroStats.map((stat, index) => (
-                        <div key={index} className="bg-gray-900/30 rounded-lg p-6 border border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:bg-gray-800/30">
+                      {heroStats.map((stat, index) => <div key={index} className="bg-gray-900/30 rounded-lg p-6 border border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:bg-gray-800/30">
                           <div className="text-3xl font-bold text-[#3BC553] mb-2 font-afacad">
-                            <AnimatedNumber 
-                              value={stat.value} 
-                              key={`hero-${index}-${heroStatsKey}`}
-                              duration={1500}
-                            />
+                            <AnimatedNumber value={stat.value} key={`hero-${index}-${heroStatsKey}`} duration={1500} />
                             {stat.suffix}
                           </div>
                           <div className="text-gray-400 text-sm">{stat.label}</div>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
       </section>
 
       {/* Problem Section - moved up under LogoCloud - consistent py-24 spacing */}
-      <section className="px-6 lg:px-8 py-24">
+      <section className="lg:px-8 px-[24px] py-[24px]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold text-white mb-6 hover:text-[#3BC553] transition-colors duration-300">The Manual Catalog Challenge</h2>
@@ -135,7 +141,9 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{
+            animationDelay: '0.1s'
+          }}>
               <CardContent className="p-6 text-center">
                 <Clock className="w-12 h-12 text-[#3BC553] mx-auto mb-4 group-hover:animate-pulse" />
                 <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#3BC553] transition-colors">Time Consuming</h3>
@@ -146,7 +154,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardContent className="p-6 text-center">
                 <Eye className="w-12 h-12 text-[#3BC553] mx-auto mb-4 group-hover:animate-pulse" />
                 <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#3BC553] transition-colors">Human Error</h3>
@@ -157,7 +167,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+            <Card className="bg-[#231F20]/80 border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{
+            animationDelay: '0.3s'
+          }}>
               <CardContent className="p-6 text-center">
                 <TrendingUp className="w-12 h-12 text-[#3BC553] mx-auto mb-4 group-hover:animate-pulse" />
                 <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#3BC553] transition-colors">Scaling Issues</h3>
@@ -180,7 +192,9 @@ const Index = () => {
           </div>
 
           {/* YouTube Video Demo with updated link */}
-          <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="mb-16 animate-fade-in" style={{
+          animationDelay: '0.2s'
+        }}>
             <div className="max-w-4xl mx-auto">
               <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#3BC553]/10">
                 <h3 className="text-2xl font-bold text-white mb-4 text-center">Watch Our AI in Action</h3>
@@ -195,7 +209,9 @@ const Index = () => {
           </div>
 
           {/* Process Flow */}
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="relative animate-fade-in" style={{
+          animationDelay: '0.4s'
+        }}>
             <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
               
               {/* Step 1 */}
@@ -257,7 +273,9 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="animate-fade-in" style={{
+          animationDelay: '0.2s'
+        }}>
             <RetailDashboard />
           </div>
         </div>
@@ -281,7 +299,9 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{
+            animationDelay: '0.1s'
+          }}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center mb-4 group-hover:animate-pulse group-hover:shadow-lg group-hover:shadow-[#3BC553]/25">
                   <Zap className="w-6 h-6 text-white" />
@@ -293,7 +313,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center mb-4 group-hover:animate-pulse group-hover:shadow-lg group-hover:shadow-[#3BC553]/25">
                   <Shield className="w-6 h-6 text-white" />
@@ -305,7 +327,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10 animate-fade-in group" style={{
+            animationDelay: '0.3s'
+          }}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center mb-4 group-hover:animate-pulse group-hover:shadow-lg group-hover:shadow-[#3BC553]/25">
                   <Users className="w-6 h-6 text-white" />
@@ -325,30 +349,40 @@ const Index = () => {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12 animate-fade-in hover:text-[#3BC553] transition-colors duration-300">Trusted by 10,000+ Businesses Worldwide</h2>
           
-          <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="mb-16 animate-fade-in" style={{
+          animationDelay: '0.2s'
+        }}>
             <TestimonialCarousel />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{
+            animationDelay: '0.1s'
+          }}>
               <div className="text-3xl font-bold text-white font-afacad hover:text-[#3BC553] transition-colors">
                 <AnimatedNumber value="10,000" />+
               </div>
               <div className="text-gray-400">Active Users</div>
             </div>
-            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               <div className="text-3xl font-bold text-white font-afacad hover:text-[#3BC553] transition-colors">
                 <AnimatedNumber value="2" />M+
               </div>
               <div className="text-gray-400">Products Processed</div>
             </div>
-            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{
+            animationDelay: '0.3s'
+          }}>
               <div className="text-3xl font-bold text-white font-afacad hover:text-[#3BC553] transition-colors">
                 <AnimatedNumber value="99.9" />%
               </div>
               <div className="text-gray-400">Uptime</div>
             </div>
-            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="hover:scale-105 transition-transform duration-300 animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               <div className="text-3xl font-bold text-white font-afacad hover:text-[#3BC553] transition-colors">24/7</div>
               <div className="text-gray-400">Support</div>
             </div>
@@ -365,7 +399,9 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in" style={{
+            animationDelay: '0.1s'
+          }}>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Starter</h3>
                 <div className="text-4xl font-bold text-white mb-6 font-afacad hover:text-[#3BC553] transition-colors">
@@ -389,7 +425,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-[#3BC553] border-[#3BC553] scale-105 hover:scale-110 transition-all duration-300 hover:shadow-xl hover:shadow-[#3BC553]/25 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <Card className="bg-[#3BC553] border-[#3BC553] scale-105 hover:scale-110 transition-all duration-300 hover:shadow-xl hover:shadow-[#3BC553]/25 animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardContent className="p-8">
                 <div className="text-center mb-4">
                   <Badge className="bg-white/20 text-white animate-pulse">Most Popular</Badge>
@@ -420,7 +458,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <Card className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in" style={{
+            animationDelay: '0.3s'
+          }}>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Enterprise</h3>
                 <div className="text-4xl font-bold text-white mb-6 font-afacad hover:text-[#3BC553] transition-colors">
@@ -545,8 +585,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
