@@ -182,17 +182,21 @@ const SeoOptimization = () => {
             
             <section className="px-6 lg:px-8 py-20 relative z-10">
                 <div className="max-w-6xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-12 items-start">
-                        <div>
-                            <h2 className="text-4xl font-bold mb-6">Live SEO Scoring & Content Generation</h2>
-                            <p className="text-xl text-gray-300 mb-8">
-                                See our AI in action. We'll analyze a sample product and generate SEO-optimized content, giving you a real-time score.
-                            </p>
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl font-bold mb-6">Live SEO Scoring & Content Generation</h2>
+                        <p className="text-xl text-gray-300">
+                            See our AI in action. We'll analyze a sample product and generate SEO-optimized content, giving you a real-time score.
+                        </p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-3 gap-8 items-start">
+                        {/* Generate & Boost SEO section - takes 2 columns */}
+                        <div className="md:col-span-2">
                             <Card className="bg-white/[.05] border-white/[.10]">
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2 text-gray-100">
                                         <Bot className="text-[#3BC553]" />
-                                        AI Content Generator
+                                        Generate & Boost SEO
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
@@ -218,6 +222,8 @@ const SeoOptimization = () => {
                                 </CardContent>
                             </Card>
                         </div>
+                        
+                        {/* Live SEO Score section - takes 1 column, right-aligned */}
                         <div className="flex flex-col items-center justify-center">
                             <h3 className="text-2xl font-bold mb-4">Live SEO Score</h3>
                             <div className="relative w-48 h-48">
