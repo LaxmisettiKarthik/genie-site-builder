@@ -8,7 +8,7 @@ import AnimatedNumber from "./AnimatedNumber";
 
 const RetailDashboard = () => {
   const [showAnalyticsDemo, setShowAnalyticsDemo] = useState(false);
-  const [isActivityExpanded, setIsActivityExpanded] = useState(true);
+  const [isActivityExpanded, setIsActivityExpanded] = useState(false);
   const [interactionCount, setInteractionCount] = useState(0);
 
   // Simulate real-time updates based on interactions
