@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Sparkles, Package, Zap, Target } from "lucide-react";
+import { Sparkles, Package, Zap, Target, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
@@ -34,6 +34,12 @@ const Navigation = () => {
       href: "/solutions/catalog-optimization",
       description: "Optimize your catalog for better search and conversion rates",
       icon: Target,
+    },
+    {
+      title: "SEO Optimization",
+      href: "/solutions/seo-optimization",
+      description: "Boost product discoverability with AI-powered SEO optimization.",
+      icon: TrendingUp,
     },
   ];
 

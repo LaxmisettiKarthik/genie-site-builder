@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import ProductTagging from "./pages/solutions/ProductTagging";
 import ContentGeneration from "./pages/solutions/ContentGeneration";
 import CatalogOptimization from "./pages/solutions/CatalogOptimization";
+import SeoOptimization from "./pages/solutions/SeoOptimization";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/solutions/product-tagging" element={<ProductTagging />} />
           <Route path="/solutions/content-generation" element={<ContentGeneration />} />
           <Route path="/solutions/catalog-optimization" element={<CatalogOptimization />} />
+          <Route path="/solutions/seo-optimization" element={<SeoOptimization />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
