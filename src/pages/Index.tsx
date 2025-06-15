@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -51,20 +50,12 @@ const Index = () => {
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-4 text-lg"
-                onClick={() => setShowAIDemo(!showAIDemo)}
-              >
-                {showAIDemo ? "Hide Demo" : "Watch Demo"}
-              </Button>
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg"
                 onClick={() => setShowAIDemo(!showAIDemo)}
               >
-                {showAIDemo ? "Hide AI Demo" : "Enrich Product"}
+                {showAIDemo ? "Hide Demo" : "Feel it"}
                 <Sparkles className="ml-2 w-5 h-5" />
               </Button>
             </div>
@@ -156,6 +147,27 @@ const Index = () => {
             </p>
           </div>
 
+          {/* YouTube Video Demo */}
+          <div className="mb-16">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30">
+                <h3 className="text-2xl font-bold text-white mb-4 text-center">Watch Our AI in Action</h3>
+                <p className="text-gray-300 mb-6 text-center">
+                  See how Catalog Genie transforms your product management workflow
+                </p>
+                <div className="relative aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Catalog Genie Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Process Flow */}
           <div className="relative">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
@@ -223,7 +235,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Futuristic Benefits Section */}
+      {/* Enhanced Futuristic Benefits Section with Brand Colors */}
       <section className="px-6 lg:px-8 py-24 relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10">
@@ -246,7 +258,7 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Futuristic Grid Layout */}
+          {/* Futuristic Grid Layout with Brand Colors */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Revenue Card */}
@@ -265,85 +277,85 @@ const Index = () => {
             </Card>
 
             {/* Time Card */}
-            <Card className="group relative bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+            <Card className="group relative bg-gradient-to-br from-[#3BC553]/15 via-[#231F20]/50 to-transparent border-[#3BC553]/25 hover:border-[#3BC553]/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3BC553]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3BC553]/10 rounded-full blur-2xl group-hover:bg-[#3BC553]/20 transition-all duration-500"></div>
               <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3BC553] to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <Clock className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Save Time</h3>
-                <div className="text-5xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4">95%</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mb-4">95%</div>
                 <p className="text-gray-300 leading-relaxed">Reduce manual catalog work from hours to minutes with automation</p>
-                <div className="mt-6 h-1 bg-gradient-to-r from-cyan-500 to-blue-400 rounded-full"></div>
+                <div className="mt-6 h-1 bg-gradient-to-r from-[#3BC553] to-green-400 rounded-full"></div>
               </CardContent>
             </Card>
 
             {/* Quality Card */}
-            <Card className="group relative bg-gradient-to-br from-purple-500/20 via-pink-500/10 to-transparent border-purple-500/30 hover:border-purple-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all duration-500"></div>
+            <Card className="group relative bg-gradient-to-br from-[#3BC553]/15 via-[#231F20]/50 to-transparent border-[#3BC553]/25 hover:border-[#3BC553]/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3BC553]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3BC553]/10 rounded-full blur-2xl group-hover:bg-[#3BC553]/20 transition-all duration-500"></div>
               <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3BC553] to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <Lightbulb className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Improve Quality</h3>
-                <div className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">99.9%</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mb-4">99.9%</div>
                 <p className="text-gray-300 leading-relaxed">Consistent, accurate product information across your entire catalog</p>
-                <div className="mt-6 h-1 bg-gradient-to-r from-purple-500 to-pink-400 rounded-full"></div>
+                <div className="mt-6 h-1 bg-gradient-to-r from-[#3BC553] to-green-400 rounded-full"></div>
               </CardContent>
             </Card>
 
             {/* Scale Card */}
-            <Card className="group relative bg-gradient-to-br from-orange-500/20 via-red-500/10 to-transparent border-orange-500/30 hover:border-orange-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl group-hover:bg-orange-500/20 transition-all duration-500"></div>
+            <Card className="group relative bg-gradient-to-br from-[#3BC553]/15 via-[#231F20]/50 to-transparent border-[#3BC553]/25 hover:border-[#3BC553]/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3BC553]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3BC553]/10 rounded-full blur-2xl group-hover:bg-[#3BC553]/20 transition-all duration-500"></div>
               <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3BC553] to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <Workflow className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Scale Effortlessly</h3>
-                <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-4">10x</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mb-4">10x</div>
                 <p className="text-gray-300 leading-relaxed">Handle growing product catalogs without increasing team size</p>
-                <div className="mt-6 h-1 bg-gradient-to-r from-orange-500 to-red-400 rounded-full"></div>
+                <div className="mt-6 h-1 bg-gradient-to-r from-[#3BC553] to-green-400 rounded-full"></div>
               </CardContent>
             </Card>
 
             {/* Errors Card */}
-            <Card className="group relative bg-gradient-to-br from-teal-500/20 via-emerald-500/10 to-transparent border-teal-500/30 hover:border-teal-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl group-hover:bg-teal-500/20 transition-all duration-500"></div>
+            <Card className="group relative bg-gradient-to-br from-[#3BC553]/15 via-[#231F20]/50 to-transparent border-[#3BC553]/25 hover:border-[#3BC553]/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3BC553]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3BC553]/10 rounded-full blur-2xl group-hover:bg-[#3BC553]/20 transition-all duration-500"></div>
               <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-emerald-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3BC553] to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Reduce Errors</h3>
-                <div className="text-5xl font-black bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent mb-4">-90%</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mb-4">-90%</div>
                 <p className="text-gray-300 leading-relaxed">AI eliminates human errors in product categorization and tagging</p>
-                <div className="mt-6 h-1 bg-gradient-to-r from-teal-500 to-emerald-400 rounded-full"></div>
+                <div className="mt-6 h-1 bg-gradient-to-r from-[#3BC553] to-green-400 rounded-full"></div>
               </CardContent>
             </Card>
 
             {/* SEO Card */}
-            <Card className="group relative bg-gradient-to-br from-yellow-500/20 via-amber-500/10 to-transparent border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-500 hover:scale-105 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl group-hover:bg-yellow-500/20 transition-all duration-500"></div>
+            <Card className="group relative bg-gradient-to-br from-[#3BC553]/15 via-[#231F20]/50 to-transparent border-[#3BC553]/25 hover:border-[#3BC553]/60 transition-all duration-500 hover:scale-105 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3BC553]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3BC553]/10 rounded-full blur-2xl group-hover:bg-[#3BC553]/20 transition-all duration-500"></div>
               <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3BC553] to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <MessageSquare className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Better SEO</h3>
-                <div className="text-5xl font-black bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent mb-4">+60%</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mb-4">+60%</div>
                 <p className="text-gray-300 leading-relaxed">Optimized product descriptions improve search engine rankings</p>
-                <div className="mt-6 h-1 bg-gradient-to-r from-yellow-500 to-amber-400 rounded-full"></div>
+                <div className="mt-6 h-1 bg-gradient-to-r from-[#3BC553] to-green-400 rounded-full"></div>
               </CardContent>
             </Card>
           </div>
 
           {/* Floating Elements */}
           <div className="absolute top-1/4 left-8 w-3 h-3 bg-[#3BC553] rounded-full animate-ping"></div>
-          <div className="absolute top-3/4 right-12 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/4 left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-3/4 right-12 w-2 h-2 bg-[#3BC553]/70 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/4 left-1/4 w-4 h-4 bg-[#3BC553]/60 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
         </div>
       </section>
 
