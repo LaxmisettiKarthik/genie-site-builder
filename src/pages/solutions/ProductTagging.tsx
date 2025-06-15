@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -84,7 +83,7 @@ const ProductTagging = () => {
       delay: 2100
     }]
   }, {
-    image: "url('/lovable-uploads/3ef5bc4b-c86f-45e8-ab71-bcb667457334.png')",
+    image: "url('/lovable-uploads/3e32cc94-e9c9-4e70-9efa-6fafabdc2022.png')",
     title: "Leather Jacket",
     tags: [{
       label: "Leather",
