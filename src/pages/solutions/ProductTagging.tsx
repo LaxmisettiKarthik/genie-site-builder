@@ -175,7 +175,7 @@ const ProductTagging = () => {
       <Navigation />
       
       {/* Hero Section with Interactive Elements */}
-      <section className="px-6 lg:px-8 py-20 lg:py-32 relative z-10">
+      <section className="px-6 lg:px-8 lg:py-32 relative z-10 py-[24px]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             
@@ -226,7 +226,7 @@ const ProductTagging = () => {
         </section>}
 
       {/* Animated Benefits Section */}
-      <section className="px-6 lg:px-8 py-20 relative z-10">
+      <section className="px-6 lg:px-8 relative z-10 py-[24px]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Real-Time Performance</h2>
