@@ -7,6 +7,7 @@ import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
 import { useState } from "react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import BusinessResults from "@/components/BusinessResults";
 
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
@@ -237,6 +238,11 @@ const Index = () => {
           
           <RetailDashboard />
         </div>
+      </section>
+
+      {/* Transform Business Results Section */}
+      <section className="px-6 lg:px-8 py-24">
+        <BusinessResults />
       </section>
 
       {/* Enhanced Futuristic Benefits Section with Brand Colors */}
