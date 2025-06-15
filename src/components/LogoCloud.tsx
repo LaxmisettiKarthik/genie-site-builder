@@ -2,7 +2,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 
-const platforms = ['Shopify', 'WooCommerce', 'Magento', 'BigCommerce'];
+const platforms = ['Falabella', 'Paris.cl', 'cencosud', 'Jumbo', 'shopify', 'Brandsclub', 'Kiko cosmetics', 'Serhafen'];
 
 const LogoCloud = () => {
   return (
