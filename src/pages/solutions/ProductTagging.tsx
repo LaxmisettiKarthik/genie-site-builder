@@ -8,7 +8,6 @@ import TaggingMetrics from "@/components/TaggingMetrics";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import Navigation from "@/components/Navigation";
 import { useState, useRef } from "react";
-
 const ProductTagging = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [isDemoVisible, setIsDemoVisible] = useState(false);
@@ -169,8 +168,7 @@ const ProductTagging = () => {
     label: "Attributes",
     description: "Comprehensive product data"
   }];
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden font-lexend">
+  return <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden font-lexend">
       <FloatingParticles />
       
       {/* Navigation */}
@@ -180,9 +178,7 @@ const ProductTagging = () => {
       <section className="px-6 lg:px-8 py-20 lg:py-32 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <Badge className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30 mb-6 animate-pulse">
-              🤖 AI-Powered Solution
-            </Badge>
+            
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight font-afacad">
               Automated Product
               <span className="bg-gradient-to-r from-[#3BC553] via-green-400 to-emerald-300 bg-clip-text text-transparent animate-pulse"> Tagging </span>
@@ -303,8 +299,6 @@ const ProductTagging = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ProductTagging;
