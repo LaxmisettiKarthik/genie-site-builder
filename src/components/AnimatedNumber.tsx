@@ -12,6 +12,9 @@ const AnimatedNumber = ({ value, duration = 2000, className }: AnimatedNumberPro
   const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
+    // Reset animation state
+    setIsAnimating(true);
+    
     // Extract numeric part and suffix from the value
     const numericMatch = value.match(/^(\d+(?:\.\d+)?)/);
     const suffix = value.replace(/^(\d+(?:\.\d+)?)/, "");
@@ -30,10 +33,11 @@ const AnimatedNumber = ({ value, duration = 2000, className }: AnimatedNumberPro
       const progress = Math.min(elapsed / duration, 1);
       
       if (progress < 1) {
-        // Generate random number that gradually approaches target
-        const randomFactor = 1 - progress;
-        const randomVariation = (Math.random() - 0.5) * randomFactor * targetNumber * 0.3;
-        const currentValue = targetNumber * progress + randomVariation;
+        // More dynamic animation with smoother progression
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const randomFactor = (1 - progress) * 0.15; // Reduced randomness
+        const randomVariation = (Math.random() - 0.5) * randomFactor * targetNumber;
+        const currentValue = targetNumber * easeOutQuart + randomVariation;
         
         // Format the number appropriately
         const formattedValue = targetNumber < 10 
@@ -48,14 +52,15 @@ const AnimatedNumber = ({ value, duration = 2000, className }: AnimatedNumberPro
       }
     };
 
-    const startDelay = Math.random() * 500; // Random start delay
+    // Start animation with a slight delay for better visual effect
+    const startDelay = Math.random() * 200;
     setTimeout(() => {
       animate();
     }, startDelay);
   }, [value, duration]);
 
   return (
-    <span className={`${className} ${isAnimating ? 'text-[#3BC553]' : ''} transition-colors duration-300`}>
+    <span className={`${className} ${isAnimating ? 'text-[#3BC553] scale-105' : ''} transition-all duration-300`}>
       {displayValue}
     </span>
   );

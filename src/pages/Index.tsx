@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,13 +5,45 @@ import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, Tre
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import BusinessResults from "@/components/BusinessResults";
 import AnimatedNumber from "@/components/AnimatedNumber";
 
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
+  const [heroStatsKey, setHeroStatsKey] = useState(0);
+
+  // Hero stats that update when demo is toggled
+  const [heroStats, setHeroStats] = useState([
+    { value: "95", label: "Time Saved", suffix: "%" },
+    { value: "10", label: "Faster Processing", suffix: "x" },
+    { value: "99.9", label: "Accuracy Rate", suffix: "%" },
+    { value: "24/7", label: "Automated Processing", suffix: "" }
+  ]);
+
+  // Update hero stats when demo is shown
+  useEffect(() => {
+    if (showAIDemo) {
+      const timer = setTimeout(() => {
+        setHeroStats(prev => prev.map(stat => {
+          if (stat.suffix === "%") {
+            const current = parseFloat(stat.value);
+            const newValue = Math.min(99.9, current + Math.random() * 2);
+            return { ...stat, value: newValue.toFixed(1) };
+          } else if (stat.suffix === "x") {
+            const current = parseInt(stat.value);
+            const newValue = current + Math.floor(Math.random() * 2) + 1;
+            return { ...stat, value: newValue.toString() };
+          }
+          return stat;
+        }));
+        setHeroStatsKey(prev => prev + 1);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showAIDemo]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
@@ -53,7 +84,11 @@ const Index = () => {
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button size="lg" className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg" onClick={() => setShowAIDemo(!showAIDemo)}>
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg" 
+                onClick={() => setShowAIDemo(!showAIDemo)}
+              >
                 {showAIDemo ? "Hide Demo" : "Feel it"}
                 <Sparkles className="ml-2 w-5 h-5" />
               </Button>
@@ -69,32 +104,23 @@ const Index = () => {
                   </p>
                   <AIContentGenerator />
                   
-                  {/* Moved Stats Section */}
+                  {/* Updated Stats Section with Interactive Numbers */}
                   <div className="mt-8">
                     <h4 className="text-xl font-bold text-white mb-6 text-center">Catalog Performance Metrics</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">
-                          <AnimatedNumber value="95" />%
+                      {heroStats.map((stat, index) => (
+                        <div key={index} className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+                          <div className="text-3xl font-bold text-[#3BC553] mb-2">
+                            <AnimatedNumber 
+                              value={stat.value} 
+                              key={`hero-${index}-${heroStatsKey}`}
+                              duration={1500}
+                            />
+                            {stat.suffix}
+                          </div>
+                          <div className="text-gray-400 text-sm">{stat.label}</div>
                         </div>
-                        <div className="text-gray-400 text-sm">Time Saved</div>
-                      </div>
-                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">
-                          <AnimatedNumber value="10" />x
-                        </div>
-                        <div className="text-gray-400 text-sm">Faster Processing</div>
-                      </div>
-                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">
-                          <AnimatedNumber value="99.9" />%
-                        </div>
-                        <div className="text-gray-400 text-sm">Accuracy Rate</div>
-                      </div>
-                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">24/7</div>
-                        <div className="text-gray-400 text-sm">Automated Processing</div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>

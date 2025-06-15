@@ -3,19 +3,77 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Package, Zap, Target, Sparkles, BarChart3, Users, Eye, MessageSquare, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AnimatedNumber from "./AnimatedNumber";
 
 const RetailDashboard = () => {
   const [showAnalyticsDemo, setShowAnalyticsDemo] = useState(false);
   const [isActivityExpanded, setIsActivityExpanded] = useState(true);
+  const [interactionCount, setInteractionCount] = useState(0);
 
-  const metrics = [
+  // Simulate real-time updates based on interactions
+  const [metrics, setMetrics] = useState([
     { label: "Products Tagged", value: "2,847", trend: "+12%", icon: Package },
     { label: "Content Generated", value: "1,923", trend: "+28%", icon: Zap },
     { label: "Conversion Rate", value: "24.8%", trend: "+5.2%", icon: Target },
     { label: "Time Saved", value: "156", suffix: "hrs", trend: "+45%", icon: TrendingUp }
-  ];
+  ]);
+
+  const [analyticsData, setAnalyticsData] = useState([
+    { metric: "Catalog Performance", value: "94.2%", change: "+8.5%", icon: BarChart3, color: "text-green-400" },
+    { metric: "User Engagement", value: "67.8%", change: "+12.3%", icon: Users, color: "text-blue-400" },
+    { metric: "Product Views", value: "15.2K", change: "+24.7%", icon: Eye, color: "text-purple-400" },
+    { metric: "SEO Rankings", value: "5", suffix: " (Top)", change: "+3 spots", icon: MessageSquare, color: "text-yellow-400" }
+  ]);
+
+  // Update metrics when user interacts
+  useEffect(() => {
+    if (interactionCount > 0) {
+      const updateMetrics = () => {
+        setMetrics(prev => prev.map(metric => {
+          const baseValue = parseInt(metric.value.replace(/[^\d]/g, ''));
+          const increment = Math.floor(Math.random() * 10) + 1;
+          const newValue = baseValue + increment;
+          
+          if (metric.label === "Products Tagged") {
+            return { ...metric, value: newValue.toString() };
+          } else if (metric.label === "Content Generated") {
+            return { ...metric, value: (newValue - 900).toString() };
+          } else if (metric.label === "Conversion Rate") {
+            const rate = (parseFloat(metric.value) + 0.1).toFixed(1);
+            return { ...metric, value: `${rate}%` };
+          } else if (metric.label === "Time Saved") {
+            return { ...metric, value: (newValue - 2700).toString() };
+          }
+          return metric;
+        }));
+
+        setAnalyticsData(prev => prev.map(item => {
+          if (item.metric === "Catalog Performance") {
+            const current = parseFloat(item.value);
+            const newValue = Math.min(99.9, current + 0.2);
+            return { ...item, value: `${newValue.toFixed(1)}%` };
+          } else if (item.metric === "User Engagement") {
+            const current = parseFloat(item.value);
+            const newValue = Math.min(99.9, current + 0.3);
+            return { ...item, value: `${newValue.toFixed(1)}%` };
+          } else if (item.metric === "Product Views") {
+            const baseValue = parseFloat(item.value.replace('K', ''));
+            const newValue = (baseValue + 0.1).toFixed(1);
+            return { ...item, value: `${newValue}K` };
+          }
+          return item;
+        }));
+      };
+
+      const timer = setTimeout(updateMetrics, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [interactionCount]);
+
+  const handleInteraction = () => {
+    setInteractionCount(prev => prev + 1);
+  };
 
   const recentActivity = [
     { action: "Auto-tagged", product: "Summer Dress Collection", count: "12 items", time: "2 min ago" },
@@ -26,13 +84,6 @@ const RetailDashboard = () => {
     { action: "Updated SEO", product: "Beauty Products", count: "31 items", time: "18 min ago" }
   ];
 
-  const analyticsData = [
-    { metric: "Catalog Performance", value: "94.2%", change: "+8.5%", icon: BarChart3, color: "text-green-400" },
-    { metric: "User Engagement", value: "67.8%", change: "+12.3%", icon: Users, color: "text-blue-400" },
-    { metric: "Product Views", value: "15.2K", change: "+24.7%", icon: Eye, color: "text-purple-400" },
-    { metric: "SEO Rankings", value: "5", suffix: " (Top)", change: "+3 spots", icon: MessageSquare, color: "text-yellow-400" }
-  ];
-
   const displayedActivity = isActivityExpanded ? recentActivity : recentActivity.slice(0, 3);
 
   return (
@@ -41,7 +92,10 @@ const RetailDashboard = () => {
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-2xl font-bold text-white">Analytics Dashboard</h3>
         <Button 
-          onClick={() => setShowAnalyticsDemo(!showAnalyticsDemo)}
+          onClick={() => {
+            setShowAnalyticsDemo(!showAnalyticsDemo);
+            handleInteraction();
+          }}
           className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white"
         >
           {showAnalyticsDemo ? "Hide Demo" : "Feel it"}
@@ -71,7 +125,11 @@ const RetailDashboard = () => {
                         </Badge>
                       </div>
                       <div className={`text-2xl font-bold ${item.color} mb-1`}>
-                        <AnimatedNumber value={item.value} />
+                        <AnimatedNumber 
+                          value={item.value} 
+                          key={`${item.metric}-${interactionCount}`}
+                          duration={1500}
+                        />
                         {item.suffix && <span>{item.suffix}</span>}
                       </div>
                       <div className="text-xs text-gray-400">{item.metric}</div>
@@ -125,7 +183,11 @@ const RetailDashboard = () => {
                   </Badge>
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">
-                  <AnimatedNumber value={metric.value} />
+                  <AnimatedNumber 
+                    value={metric.value} 
+                    key={`${metric.label}-${interactionCount}`}
+                    duration={2000}
+                  />
                   {metric.suffix && <span>{metric.suffix}</span>}
                 </div>
                 <div className="text-xs text-gray-400">{metric.label}</div>
@@ -143,7 +205,10 @@ const RetailDashboard = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setIsActivityExpanded(!isActivityExpanded)}
+              onClick={() => {
+                setIsActivityExpanded(!isActivityExpanded);
+                handleInteraction();
+              }}
               className="text-gray-400 hover:text-white"
             >
               {isActivityExpanded ? (
