@@ -1,36 +1,38 @@
 
 import React from 'react';
+import { Star } from 'lucide-react';
 
-const logos = [
-  { name: 'FedEx' },
-  { name: "Levi's" },
-  { name: 'Nike' },
-  { name: 'TATA' },
-  { name: 'DIESEL' },
-  { name: 'zenyum' },
-  { name: 'Dubai Commercity' },
-  { name: 'Microsoft' },
-  { name: 'HDFC BANK' },
-  { name: 'SF' },
-  { name: 'Google Cloud' },
-  { name: 'ThredUp' },
-];
+const platforms = ['Shopify', 'WooCommerce', 'Magento', 'BigCommerce'];
 
 const LogoCloud = () => {
   return (
     <div className="w-full">
       <div className="max-w-6xl mx-auto text-center px-4">
-        <p className="text-sm text-gray-400 uppercase tracking-widest">
-          Embraced by iconic enterprises around the world
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-10 gap-x-8 mt-8">
-          {logos.map((logo) => (
-            <div key={logo.name} className="flex justify-center items-center h-12">
-              <span className="text-xl font-bold text-gray-500 transition-colors hover:text-gray-300 whitespace-nowrap">
-                {logo.name}
+        <div className="flex justify-center items-center gap-2">
+          <div className="flex text-yellow-400">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-5 h-5 fill-current" />
+            ))}
+          </div>
+          <p className="text-sm text-gray-300 tracking-wide">Trusted by 1,000+ Brands</p>
+        </div>
+
+        <div className="w-full max-w-xl mx-auto border-t border-white/10 my-8"></div>
+
+        <div className="space-y-6">
+          <p className="text-sm text-gray-400 tracking-wide">
+            Trusted by leading eCommerce platforms
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-10 sm:gap-x-16">
+            {platforms.map((platform) => (
+              <span
+                key={platform}
+                className="text-xl text-gray-500 transition-all duration-300 hover:text-white hover:scale-105 cursor-pointer font-medium"
+              >
+                {platform}
               </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
