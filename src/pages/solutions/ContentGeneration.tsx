@@ -168,7 +168,7 @@ const ContentGeneration = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="87" />%
                 </div>
                 <div className="text-white font-semibold mb-1">Faster Content Creation</div>
@@ -178,7 +178,7 @@ const ContentGeneration = () => {
             
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="35" />%
                 </div>
                 <div className="text-white font-semibold mb-1">Higher Conversion</div>
@@ -188,7 +188,7 @@ const ContentGeneration = () => {
             
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="50" />+
                 </div>
                 <div className="text-white font-semibold mb-1">Languages</div>
@@ -198,7 +198,7 @@ const ContentGeneration = () => {
             
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="10" />x
                 </div>
                 <div className="text-white font-semibold mb-1">Faster SEO</div>

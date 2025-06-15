@@ -49,7 +49,7 @@ const Navigation = () => {
         <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
           <Sparkles className="w-5 h-5 text-white" />
         </div>
-        <span className="text-xl font-bold text-white">Catalog Genie</span>
+        <span className="text-xl font-bold text-white font-afacad">Catalog Genie</span>
       </Link>
       
       <div className="hidden md:flex items-center space-x-8">

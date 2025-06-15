@@ -172,7 +172,7 @@ const CatalogOptimization = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="127" />%
                 </div>
                 <div className="text-white font-semibold mb-1">Traffic Increase</div>
@@ -182,7 +182,7 @@ const CatalogOptimization = () => {
             
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="34" />%
                 </div>
                 <div className="text-white font-semibold mb-1">Higher Conversions</div>
@@ -192,7 +192,7 @@ const CatalogOptimization = () => {
             
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="89" />%
                 </div>
                 <div className="text-white font-semibold mb-1">Better Rankings</div>
@@ -202,7 +202,7 @@ const CatalogOptimization = () => {
             
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-6">
-                <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                   <AnimatedNumber value="67" />%
                 </div>
                 <div className="text-white font-semibold mb-1">Revenue Growth</div>

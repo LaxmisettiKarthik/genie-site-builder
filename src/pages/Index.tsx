@@ -103,7 +103,7 @@ const Index = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                       {heroStats.map((stat, index) => (
                         <div key={index} className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                          <div className="text-3xl font-bold text-[#3BC553] mb-2">
+                          <div className="text-3xl font-bold text-[#3BC553] mb-2 font-afacad">
                             <AnimatedNumber 
                               value={stat.value} 
                               key={`hero-${index}-${heroStatsKey}`}
@@ -139,7 +139,7 @@ const Index = () => {
                 <Clock className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Time Consuming</h3>
                 <p className="text-gray-300 mb-4">Teams spend 40+ hours weekly on manual product tagging and description writing</p>
-                <div className="text-2xl font-bold text-[#3BC553]">
+                <div className="text-2xl font-bold text-[#3BC553] font-afacad">
                   <AnimatedNumber value="40" />+ hrs/week
                 </div>
               </CardContent>
@@ -150,7 +150,7 @@ const Index = () => {
                 <Eye className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Human Error</h3>
                 <p className="text-gray-300 mb-4">Manual processes lead to inconsistent tagging and missed product attributes</p>
-                <div className="text-2xl font-bold text-[#3BC553]">
+                <div className="text-2xl font-bold text-[#3BC553] font-afacad">
                   <AnimatedNumber value="30" />% Error Rate
                 </div>
               </CardContent>
@@ -161,7 +161,7 @@ const Index = () => {
                 <TrendingUp className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Scaling Issues</h3>
                 <p className="text-gray-300 mb-4">Growing product catalogs overwhelm manual processes and team capacity</p>
-                <div className="text-2xl font-bold text-[#3BC553]">Can't Scale</div>
+                <div className="text-2xl font-bold text-[#3BC553] font-afacad">Can't Scale</div>
               </CardContent>
             </Card>
           </div>
@@ -326,25 +326,25 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-white">
+              <div className="text-3xl font-bold text-white font-afacad">
                 <AnimatedNumber value="10,000" />+
               </div>
               <div className="text-gray-400">Active Users</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">
+              <div className="text-3xl font-bold text-white font-afacad">
                 <AnimatedNumber value="2" />M+
               </div>
               <div className="text-gray-400">Products Processed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">
+              <div className="text-3xl font-bold text-white font-afacad">
                 <AnimatedNumber value="99.9" />%
               </div>
               <div className="text-gray-400">Uptime</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">24/7</div>
+              <div className="text-3xl font-bold text-white font-afacad">24/7</div>
               <div className="text-gray-400">Support</div>
             </div>
           </div>
@@ -363,7 +363,7 @@ const Index = () => {
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Starter</h3>
-                <div className="text-4xl font-bold text-white mb-6">
+                <div className="text-4xl font-bold text-white mb-6 font-afacad">
                   $<AnimatedNumber value="29" /><span className="text-lg text-gray-400">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
@@ -390,7 +390,7 @@ const Index = () => {
                   <Badge className="bg-white/20 text-white">Most Popular</Badge>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
-                <div className="text-4xl font-bold text-white mb-6">
+                <div className="text-4xl font-bold text-white mb-6 font-afacad">
                   $<AnimatedNumber value="79" /><span className="text-lg text-white/70">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
@@ -418,7 +418,7 @@ const Index = () => {
             <Card className="bg-gray-900/50 border-gray-700">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Enterprise</h3>
-                <div className="text-4xl font-bold text-white mb-6">
+                <div className="text-4xl font-bold text-white mb-6 font-afacad">
                   Custom<span className="text-lg text-gray-400"></span>
                 </div>
                 <ul className="space-y-3 mb-8">
@@ -464,7 +464,7 @@ const Index = () => {
               <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-white">Catalog Genie</span>
+              <span className="text-xl font-bold text-white font-afacad">Catalog Genie</span>
             </div>
             <div className="text-gray-400 text-sm">
               © 2024 Catalog Genie. All rights reserved.
