@@ -9,6 +9,7 @@ import RetailDashboard from "@/components/RetailDashboard";
 import { useState } from "react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import BusinessResults from "@/components/BusinessResults";
+import AnimatedNumber from "@/components/AnimatedNumber";
 
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
@@ -73,15 +74,21 @@ const Index = () => {
                     <h4 className="text-xl font-bold text-white mb-6 text-center">Catalog Performance Metrics</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                       <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">95%</div>
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">
+                          <AnimatedNumber value="95" />%
+                        </div>
                         <div className="text-gray-400 text-sm">Time Saved</div>
                       </div>
                       <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">10x</div>
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">
+                          <AnimatedNumber value="10" />x
+                        </div>
                         <div className="text-gray-400 text-sm">Faster Processing</div>
                       </div>
                       <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-                        <div className="text-3xl font-bold text-[#3BC553] mb-2">99.9%</div>
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">
+                          <AnimatedNumber value="99.9" />%
+                        </div>
                         <div className="text-gray-400 text-sm">Accuracy Rate</div>
                       </div>
                       <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
@@ -113,7 +120,9 @@ const Index = () => {
                 <Clock className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Time Consuming</h3>
                 <p className="text-gray-300 mb-4">Teams spend 40+ hours weekly on manual product tagging and description writing</p>
-                <div className="text-2xl font-bold text-[#3BC553]">40+ hrs/week</div>
+                <div className="text-2xl font-bold text-[#3BC553]">
+                  <AnimatedNumber value="40" />+ hrs/week
+                </div>
               </CardContent>
             </Card>
 
@@ -122,7 +131,9 @@ const Index = () => {
                 <Eye className="w-12 h-12 text-[#3BC553] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-3">Human Error</h3>
                 <p className="text-gray-300 mb-4">Manual processes lead to inconsistent tagging and missed product attributes</p>
-                <div className="text-2xl font-bold text-[#3BC553]">30% Error Rate</div>
+                <div className="text-2xl font-bold text-[#3BC553]">
+                  <AnimatedNumber value="30" />% Error Rate
+                </div>
               </CardContent>
             </Card>
 
@@ -296,15 +307,21 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-white">10,000+</div>
+              <div className="text-3xl font-bold text-white">
+                <AnimatedNumber value="10,000" />+
+              </div>
               <div className="text-gray-400">Active Users</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">2M+</div>
+              <div className="text-3xl font-bold text-white">
+                <AnimatedNumber value="2" />M+
+              </div>
               <div className="text-gray-400">Products Processed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">99.9%</div>
+              <div className="text-3xl font-bold text-white">
+                <AnimatedNumber value="99.9" />%
+              </div>
               <div className="text-gray-400">Uptime</div>
             </div>
             <div>
@@ -328,12 +345,12 @@ const Index = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Starter</h3>
                 <div className="text-4xl font-bold text-white mb-6">
-                  $29<span className="text-lg text-gray-400">/month</span>
+                  $<AnimatedNumber value="29" /><span className="text-lg text-gray-400">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center text-gray-300">
                     <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
-                    Up to 1,000 products
+                    Up to <AnimatedNumber value="1,000" className="text-[#3BC553]" /> products
                   </li>
                   <li className="flex items-center text-gray-300">
                     <CheckCircle className="w-5 h-5 text-[#3BC553] mr-3" />
@@ -355,12 +372,12 @@ const Index = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
                 <div className="text-4xl font-bold text-white mb-6">
-                  $79<span className="text-lg text-white/70">/month</span>
+                  $<AnimatedNumber value="79" /><span className="text-lg text-white/70">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center text-white">
                     <CheckCircle className="w-5 h-5 text-white mr-3" />
-                    Up to 10,000 products
+                    Up to <AnimatedNumber value="10,000" className="text-white" /> products
                   </li>
                   <li className="flex items-center text-white">
                     <CheckCircle className="w-5 h-5 text-white mr-3" />

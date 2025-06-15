@@ -2,32 +2,38 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Package, Zap, Target, Sparkles, BarChart3, Users, Eye, MessageSquare } from "lucide-react";
+import { TrendingUp, Package, Zap, Target, Sparkles, BarChart3, Users, Eye, MessageSquare, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import AnimatedNumber from "./AnimatedNumber";
 
 const RetailDashboard = () => {
   const [showAnalyticsDemo, setShowAnalyticsDemo] = useState(false);
+  const [isActivityExpanded, setIsActivityExpanded] = useState(true);
 
   const metrics = [
     { label: "Products Tagged", value: "2,847", trend: "+12%", icon: Package },
     { label: "Content Generated", value: "1,923", trend: "+28%", icon: Zap },
     { label: "Conversion Rate", value: "24.8%", trend: "+5.2%", icon: Target },
-    { label: "Time Saved", value: "156hrs", trend: "+45%", icon: TrendingUp }
+    { label: "Time Saved", value: "156", suffix: "hrs", trend: "+45%", icon: TrendingUp }
   ];
 
   const recentActivity = [
     { action: "Auto-tagged", product: "Summer Dress Collection", count: "12 items", time: "2 min ago" },
     { action: "Generated content", product: "Athletic Sneakers", count: "5 variants", time: "5 min ago" },
     { action: "Optimized titles", product: "Home Decor", count: "23 items", time: "8 min ago" },
-    { action: "Created tags", product: "Electronics", count: "8 categories", time: "12 min ago" }
+    { action: "Created tags", product: "Electronics", count: "8 categories", time: "12 min ago" },
+    { action: "Analyzed images", product: "Fashion Accessories", count: "15 items", time: "15 min ago" },
+    { action: "Updated SEO", product: "Beauty Products", count: "31 items", time: "18 min ago" }
   ];
 
   const analyticsData = [
     { metric: "Catalog Performance", value: "94.2%", change: "+8.5%", icon: BarChart3, color: "text-green-400" },
     { metric: "User Engagement", value: "67.8%", change: "+12.3%", icon: Users, color: "text-blue-400" },
     { metric: "Product Views", value: "15.2K", change: "+24.7%", icon: Eye, color: "text-purple-400" },
-    { metric: "SEO Rankings", value: "Top 5", change: "+3 spots", icon: MessageSquare, color: "text-yellow-400" }
+    { metric: "SEO Rankings", value: "5", suffix: " (Top)", change: "+3 spots", icon: MessageSquare, color: "text-yellow-400" }
   ];
+
+  const displayedActivity = isActivityExpanded ? recentActivity : recentActivity.slice(0, 3);
 
   return (
     <div className="space-y-6">
@@ -64,7 +70,10 @@ const RetailDashboard = () => {
                           {item.change}
                         </Badge>
                       </div>
-                      <div className={`text-2xl font-bold ${item.color} mb-1`}>{item.value}</div>
+                      <div className={`text-2xl font-bold ${item.color} mb-1`}>
+                        <AnimatedNumber value={item.value} />
+                        {item.suffix && <span>{item.suffix}</span>}
+                      </div>
                       <div className="text-xs text-gray-400">{item.metric}</div>
                     </CardContent>
                   </Card>
@@ -115,7 +124,10 @@ const RetailDashboard = () => {
                     {metric.trend}
                   </Badge>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
+                <div className="text-2xl font-bold text-white mb-1">
+                  <AnimatedNumber value={metric.value} />
+                  {metric.suffix && <span>{metric.suffix}</span>}
+                </div>
                 <div className="text-xs text-gray-400">{metric.label}</div>
               </CardContent>
             </Card>
@@ -126,11 +138,31 @@ const RetailDashboard = () => {
       {/* Recent Activity */}
       <Card className="bg-gray-900/50 border-gray-700">
         <CardHeader>
-          <CardTitle className="text-white text-lg">Recent AI Activity</CardTitle>
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-white text-lg">Recent AI Activity</CardTitle>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsActivityExpanded(!isActivityExpanded)}
+              className="text-gray-400 hover:text-white"
+            >
+              {isActivityExpanded ? (
+                <>
+                  <ChevronUp className="w-4 h-4 mr-1" />
+                  Collapse
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="w-4 h-4 mr-1" />
+                  Expand
+                </>
+              )}
+            </Button>
+          </div>
         </CardHeader>
         <CardContent className="p-6 pt-0">
           <div className="space-y-3">
-            {recentActivity.map((activity, index) => (
+            {displayedActivity.map((activity, index) => (
               <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>

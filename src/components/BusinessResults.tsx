@@ -1,6 +1,7 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { BarChart3, Clock, Lightbulb, Workflow, Shield, MessageSquare, Sparkles } from "lucide-react";
+import AnimatedNumber from "./AnimatedNumber";
 
 const benefits = [{
   title: "Increase Revenue",
@@ -65,7 +66,7 @@ const BusinessResults = () => {
                   </div>
                   <div className="flex items-center">
                     <span className="text-4xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent">
-                      {benefit.value}
+                      <AnimatedNumber value={benefit.value} />
                     </span>
                   </div>
                 </div>
