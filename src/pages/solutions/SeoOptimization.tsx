@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -52,6 +51,20 @@ const SeoOptimization = () => {
     const [generatedContent, setGeneratedContent] = useState("");
     const [generationCompleted, setGenerationCompleted] = useState(false);
 
+    // Function to get score color based on value
+    const getScoreColor = (score: number) => {
+        if (score < 50) return "text-red-500";
+        if (score < 80) return "text-yellow-500";
+        return "text-green-500";
+    };
+
+    // Function to get circle stroke color based on value
+    const getCircleColor = (score: number) => {
+        if (score < 50) return "text-red-500";
+        if (score < 80) return "text-yellow-500";
+        return "text-green-500";
+    };
+
     const handleGenerateContent = () => {
         setIsGenerating(true);
         setGeneratedContent("");
@@ -66,10 +79,20 @@ const SeoOptimization = () => {
             "Building high-authority backlinks (simulated)...",
             "Finalizing SEO-rich content..."
         ];
+        
         let i = 0;
+        let currentScore = seoScore;
+        
         const interval = setInterval(() => {
             if (i < phrases.length) {
                 setGeneratedContent(prev => prev + phrases[i] + "\n");
+                
+                // Gradually increase score during generation
+                const targetScore = 98;
+                const scoreIncrement = (targetScore - seoScore) / phrases.length;
+                currentScore += scoreIncrement;
+                setSeoScore(Math.round(currentScore));
+                
                 i++;
             } else {
                 clearInterval(interval);
@@ -159,7 +182,7 @@ const SeoOptimization = () => {
             
             <section className="px-6 lg:px-8 py-20 relative z-10">
                 <div className="max-w-6xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="grid md:grid-cols-2 gap-12 items-start">
                         <div>
                             <h2 className="text-4xl font-bold mb-6">Live SEO Scoring & Content Generation</h2>
                             <p className="text-xl text-gray-300 mb-8">
@@ -180,11 +203,18 @@ const SeoOptimization = () => {
                                             <Sparkles className="ml-2 w-4 h-4"/>
                                         </Button>
                                     </div>
-                                    {generatedContent && (
-                                        <div className="mt-4 p-4 bg-black/30 rounded-lg border border-gray-700 text-sm font-mono max-h-64 overflow-y-auto">
-                                            <HighlightedGeneratedContent content={generatedContent} />
-                                        </div>
-                                    )}
+                                    {/* Fixed height container to prevent UI movement */}
+                                    <div className="mt-4 p-4 bg-black/30 rounded-lg border border-gray-700 h-64 overflow-y-auto">
+                                        {generatedContent ? (
+                                            <div className="text-sm font-mono">
+                                                <HighlightedGeneratedContent content={generatedContent} />
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center justify-center h-full text-gray-500">
+                                                <p>Click "Generate & Boost SEO" to see AI-generated content</p>
+                                            </div>
+                                        )}
+                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
@@ -194,7 +224,7 @@ const SeoOptimization = () => {
                                 <svg className="w-full h-full" viewBox="0 0 100 100">
                                     <circle className="text-gray-700" strokeWidth="10" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
                                     <circle
-                                        className="text-[#3BC553] transition-all duration-1000 ease-out"
+                                        className={`${getCircleColor(seoScore)} transition-all duration-1000 ease-out`}
                                         strokeWidth="10"
                                         strokeDasharray={2 * Math.PI * 45}
                                         strokeDashoffset={(2 * Math.PI * 45) - (seoScore / 100) * (2 * Math.PI * 45)}
@@ -212,12 +242,12 @@ const SeoOptimization = () => {
                                         <div className="animate-fade-in">
                                             <span className="text-2xl font-bold text-gray-400 line-through">{initialSeoScore}</span>
                                             <TrendingUp className="inline mx-2 h-6 w-6 text-[#3BC553]" />
-                                            <span className="text-5xl font-bold text-white animate-pulse">{seoScore}</span>
+                                            <span className={`text-5xl font-bold ${getScoreColor(seoScore)} animate-pulse`}>{seoScore}</span>
                                             <p className="text-sm text-green-400 mt-2 font-semibold">Score Boosted!</p>
                                         </div>
                                     ) : (
                                         <>
-                                            <span className="text-4xl font-bold text-white">{seoScore}</span>
+                                            <span className={`text-4xl font-bold ${getScoreColor(seoScore)} transition-colors duration-500`}>{seoScore}</span>
                                             <span className="text-gray-400">out of 100</span>
                                         </>
                                     )}
