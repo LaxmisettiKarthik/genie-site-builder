@@ -1,49 +1,38 @@
-
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { BarChart3, Clock, Lightbulb, Workflow, Shield, MessageSquare, Sparkles } from "lucide-react";
-
-const benefits = [
-  {
-    title: "Increase Revenue",
-    value: "+40%",
-    description: "Better product descriptions lead to higher conversion rates and sales.",
-    icon: BarChart3
-  },
-  {
-    title: "Save Time",
-    value: "95%",
-    description: "Reduce manual catalog work from hours to minutes with automation.",
-    icon: Clock
-  },
-  {
-    title: "Improve Quality",
-    value: "99.9%",
-    description: "Consistent, accurate product information across your entire catalog.",
-    icon: Lightbulb
-  },
-  {
-    title: "Scale Effortlessly",
-    value: "10x",
-    description: "Handle growing product catalogs without increasing team size.",
-    icon: Workflow
-  },
-  {
-    title: "Reduce Errors",
-    value: "-90%",
-    description: "AI eliminates human errors in product categorization and tagging.",
-    icon: Shield
-  },
-  {
-    title: "Better SEO",
-    value: "+60%",
-    description: "Optimized product descriptions improve search engine rankings.",
-    icon: MessageSquare
-  }
-];
-
+const benefits = [{
+  title: "Increase Revenue",
+  value: "+40%",
+  description: "Better product descriptions lead to higher conversion rates and sales.",
+  icon: BarChart3
+}, {
+  title: "Save Time",
+  value: "95%",
+  description: "Reduce manual catalog work from hours to minutes with automation.",
+  icon: Clock
+}, {
+  title: "Improve Quality",
+  value: "99.9%",
+  description: "Consistent, accurate product information across your entire catalog.",
+  icon: Lightbulb
+}, {
+  title: "Scale Effortlessly",
+  value: "10x",
+  description: "Handle growing product catalogs without increasing team size.",
+  icon: Workflow
+}, {
+  title: "Reduce Errors",
+  value: "-90%",
+  description: "AI eliminates human errors in product categorization and tagging.",
+  icon: Shield
+}, {
+  title: "Better SEO",
+  value: "+60%",
+  description: "Optimized product descriptions improve search engine rankings.",
+  icon: MessageSquare
+}];
 const BusinessResults = () => {
-  return (
-    <div className="max-w-4xl mx-auto">
+  return <div className="max-w-4xl mx-auto">
       <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 bg-[#3BC553]/10 border border-[#3BC553]/30 rounded-full px-6 py-2 mb-6">
           <Sparkles className="w-4 h-4 text-[#3BC553]" />
@@ -59,9 +48,8 @@ const BusinessResults = () => {
 
       <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
         {benefits.map((benefit, index) => {
-          const Icon = benefit.icon;
-          return (
-            <AccordionItem value={`item-${index}`} key={index} className="border-b-2 border-gray-800 last:border-b-0">
+        const Icon = benefit.icon;
+        return <AccordionItem value={`item-${index}`} key={index} className="border-b-2 border-gray-800 last:border-b-0">
               <AccordionTrigger className="py-6 text-white hover:no-underline group text-left">
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 bg-gray-800 group-hover:bg-[#3BC553] transition-colors duration-300 rounded-lg flex items-center justify-center">
@@ -70,7 +58,7 @@ const BusinessResults = () => {
                   <span className="text-2xl font-bold">{benefit.title}</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="text-4xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent">
+                  <span className="text-4xl font-black bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent mx-0 px-0 text-right">
                     {benefit.value}
                   </span>
                 </div>
@@ -78,12 +66,9 @@ const BusinessResults = () => {
               <AccordionContent className="text-gray-400 text-lg pl-[72px] pb-6 text-left">
                 {benefit.description}
               </AccordionContent>
-            </AccordionItem>
-          );
-        })}
+            </AccordionItem>;
+      })}
       </Accordion>
-    </div>
-  );
+    </div>;
 };
-
 export default BusinessResults;

@@ -8,10 +8,8 @@ import RetailDashboard from "@/components/RetailDashboard";
 import { useState } from "react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import BusinessResults from "@/components/BusinessResults";
-
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
-
   return <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
       {/* Navigation */}
       <nav className="flex items-center justify-between p-6 lg:px-8">
@@ -36,9 +34,7 @@ const Index = () => {
       <section className="px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <Badge className="mb-6 bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30">
-              ✨ AI-Powered Catalog Management
-            </Badge>
+            
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Automate Product Catalog
               <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Management </span>
@@ -52,19 +48,14 @@ const Index = () => {
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg"
-                onClick={() => setShowAIDemo(!showAIDemo)}
-              >
+              <Button size="lg" className="bg-gradient-to-r from-[#3BC553] to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-4 text-lg" onClick={() => setShowAIDemo(!showAIDemo)}>
                 {showAIDemo ? "Hide Demo" : "Feel it"}
                 <Sparkles className="ml-2 w-5 h-5" />
               </Button>
             </div>
 
             {/* AI Demo Section - Shown when button is clicked */}
-            {showAIDemo && (
-              <div className="mt-12 mb-12">
+            {showAIDemo && <div className="mt-12 mb-12">
                 <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30">
                   <h3 className="text-2xl font-bold text-white mb-4">AI Content Generation Demo</h3>
                   <p className="text-gray-300 mb-6">
@@ -95,8 +86,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
       </section>
@@ -161,13 +151,7 @@ const Index = () => {
                   See how Catalog Genie transforms your product management workflow
                 </p>
                 <div className="relative aspect-video rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Catalog Genie Demo"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  ></iframe>
+                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Catalog Genie Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0 w-full h-full"></iframe>
                 </div>
               </div>
             </div>
@@ -250,8 +234,12 @@ const Index = () => {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#3BC553] rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3BC553] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-[#3BC553] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3BC553] rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-[#3BC553] rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '2s'
+        }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -364,8 +352,12 @@ const Index = () => {
 
           {/* Floating Elements */}
           <div className="absolute top-1/4 left-8 w-3 h-3 bg-[#3BC553] rounded-full animate-ping"></div>
-          <div className="absolute top-3/4 right-12 w-2 h-2 bg-[#3BC553]/70 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/4 left-1/4 w-4 h-4 bg-[#3BC553]/60 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-3/4 right-12 w-2 h-2 bg-[#3BC553]/70 rounded-full animate-ping" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute bottom-1/4 left-1/4 w-4 h-4 bg-[#3BC553]/60 rounded-full animate-ping" style={{
+          animationDelay: '2s'
+        }}></div>
         </div>
       </section>
 
