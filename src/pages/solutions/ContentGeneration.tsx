@@ -7,58 +7,43 @@ import AnimatedNumber from "@/components/AnimatedNumber";
 import Navigation from "@/components/Navigation";
 import { useState } from "react";
 import FloatingParticles from "@/components/FloatingParticles";
-
 const ContentGeneration = () => {
   const [showDemo, setShowDemo] = useState(false);
-
-  const features = [
-    {
-      icon: MessageSquare,
-      title: "Multi-Format Content",
-      description: "Generate titles, descriptions, bullet points, and SEO meta tags automatically"
-    },
-    {
-      icon: Globe,
-      title: "Multi-Language Support",
-      description: "Create content in over 50 languages to reach global markets"
-    },
-    {
-      icon: Target,
-      title: "Brand Voice Consistency",
-      description: "Maintain your unique brand voice across all product descriptions"
-    },
-    {
-      icon: Zap,
-      title: "Instant Generation",
-      description: "Create thousands of product descriptions in seconds, not days"
-    }
-  ];
-
-  const contentTypes = [
-    {
-      title: "Product Titles",
-      description: "SEO-optimized titles that drive traffic and conversions",
-      example: "Premium Organic Cotton Crew Neck T-Shirt - Unisex Sustainable Fashion"
-    },
-    {
-      title: "Descriptions",
-      description: "Compelling product stories that highlight benefits and features",
-      example: "Experience ultimate comfort with our premium organic cotton t-shirt. Crafted from 100% sustainable materials..."
-    },
-    {
-      title: "Bullet Points",
-      description: "Key features and benefits in scannable format",
-      example: "• 100% Organic Cotton\n• Sustainable Production\n• Unisex Fit\n• Machine Washable"
-    },
-    {
-      title: "SEO Meta Tags",
-      description: "Optimized meta descriptions and keywords for better search visibility",
-      example: "Meta: Sustainable organic cotton t-shirt | Eco-friendly unisex clothing | Premium comfort wear"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden font-lexend">
+  const features = [{
+    icon: MessageSquare,
+    title: "Multi-Format Content",
+    description: "Generate titles, descriptions, bullet points, and SEO meta tags automatically"
+  }, {
+    icon: Globe,
+    title: "Multi-Language Support",
+    description: "Create content in over 50 languages to reach global markets"
+  }, {
+    icon: Target,
+    title: "Brand Voice Consistency",
+    description: "Maintain your unique brand voice across all product descriptions"
+  }, {
+    icon: Zap,
+    title: "Instant Generation",
+    description: "Create thousands of product descriptions in seconds, not days"
+  }];
+  const contentTypes = [{
+    title: "Product Titles",
+    description: "SEO-optimized titles that drive traffic and conversions",
+    example: "Premium Organic Cotton Crew Neck T-Shirt - Unisex Sustainable Fashion"
+  }, {
+    title: "Descriptions",
+    description: "Compelling product stories that highlight benefits and features",
+    example: "Experience ultimate comfort with our premium organic cotton t-shirt. Crafted from 100% sustainable materials..."
+  }, {
+    title: "Bullet Points",
+    description: "Key features and benefits in scannable format",
+    example: "• 100% Organic Cotton\n• Sustainable Production\n• Unisex Fit\n• Machine Washable"
+  }, {
+    title: "SEO Meta Tags",
+    description: "Optimized meta descriptions and keywords for better search visibility",
+    example: "Meta: Sustainable organic cotton t-shirt | Eco-friendly unisex clothing | Premium comfort wear"
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden font-lexend">
       <FloatingParticles />
       
       {/* Navigation */}
@@ -68,9 +53,7 @@ const ContentGeneration = () => {
       <section className="px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <Badge className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30 mb-6">
-              AI Content Engine
-            </Badge>
+            
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight font-afacad">
               AI Content
               <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Generation </span>
@@ -83,26 +66,19 @@ const ContentGeneration = () => {
                 Start Creating Content
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg"
-                onClick={() => setShowDemo(!showDemo)}
-              >
+              <Button size="lg" variant="outline" className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg" onClick={() => setShowDemo(!showDemo)}>
                 {showDemo ? "Hide Demo" : "See AI in Action"}
                 <Sparkles className="ml-2 w-5 h-5" />
               </Button>
             </div>
 
             {/* Demo Section */}
-            {showDemo && (
-              <div className="mt-12">
+            {showDemo && <div className="mt-12">
                 <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30">
                   <h3 className="text-2xl font-bold text-white mb-6 font-afacad">Live Content Generation</h3>
                   <AIContentGenerator />
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
       </section>
@@ -116,8 +92,7 @@ const ContentGeneration = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {contentTypes.map((type, index) => (
-              <Card key={index} className="bg-gray-900/50 border-gray-700">
+            {contentTypes.map((type, index) => <Card key={index} className="bg-gray-900/50 border-gray-700">
                 <CardHeader>
                   <CardTitle className="text-xl text-white font-afacad">{type.title}</CardTitle>
                   <p className="text-gray-400">{type.description}</p>
@@ -127,8 +102,7 @@ const ContentGeneration = () => {
                     <p className="text-gray-300 text-sm font-mono whitespace-pre-line">{type.example}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -143,9 +117,8 @@ const ContentGeneration = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <Card key={index} className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300">
+            const Icon = feature.icon;
+            return <Card key={index} className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center">
@@ -155,9 +128,8 @@ const ContentGeneration = () => {
                     </div>
                     <p className="text-gray-400">{feature.description}</p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -227,8 +199,6 @@ const ContentGeneration = () => {
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ContentGeneration;
