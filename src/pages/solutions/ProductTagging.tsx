@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,18 +21,6 @@ const ProductTagging = () => {
   };
 
   const sampleProducts = [
-    {
-      image: "url('/lovable-uploads/c6b536b3-7cc5-48bc-88d9-5221fba09e28.png')",
-      title: "Red Halter Top",
-      tags: [
-        { label: "Tops", color: "bg-rose-500", delay: 500 },
-        { label: "Red", color: "bg-red-500", delay: 700 },
-        { label: "Cold-Shoulder", color: "bg-orange-500", delay: 900 },
-        { label: "Halter Neck", color: "bg-amber-500", delay: 1100 },
-        { label: "Puffed Sleeve", color: "bg-teal-500", delay: 1300 },
-        { label: "Long Sleeve", color: "bg-indigo-500", delay: 1500 }
-      ]
-    },
     {
       image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       title: "Summer Dress",
