@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Zap, Globe, Search, Tag, TrendingUp, Sparkles, Bot, PenSquare } from "lucide-react";
 import FloatingParticles from "@/components/FloatingParticles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const HighlightedGeneratedContent = ({ content }: { content: string }) => {
     const keywords = ["waterproof men's jacket", "breathable outerwear", "lightweight technical coat", "SEO-rich", "discoverability", "style", "functionality"];
