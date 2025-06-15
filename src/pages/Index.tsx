@@ -1,7 +1,8 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, TrendingUp, Target, Package, Brain, Eye, MessageSquare, BarChart3, Lightbulb, Workflow } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, TrendingUp, Target, Package, Brain, Eye, MessageSquare, BarChart3, Lightbulb, Workflow, Twitter, Linkedin, Github, Instagram } from "lucide-react";
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
@@ -55,7 +56,7 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="px-6 lg:px-8 py-20 lg:py-32">
+      <section className="px-6 lg:px-8 py-24 lg:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             
@@ -124,7 +125,7 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="px-6 lg:px-8 py-20">
+      <section className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">The Manual Catalog Challenge</h2>
@@ -169,7 +170,7 @@ const Index = () => {
       </section>
 
       {/* Solution Infographic */}
-      <section className="px-6 lg:px-8 py-20">
+      <section className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Solution</h2>
@@ -247,7 +248,7 @@ const Index = () => {
       </section>
 
       {/* AI Demo Section - Updated to show only dashboard */}
-      <section id="demo" className="px-6 lg:px-8 py-20">
+      <section id="demo" className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Real-Time Analytics Dashboard</h2>
@@ -266,7 +267,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="px-6 lg:px-8 py-20">
+      <section id="features" className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Powerful Features for Modern Retailers</h2>
@@ -316,7 +317,7 @@ const Index = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="px-6 lg:px-8 py-20">
+      <section className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12">Trusted by 10,000+ Businesses Worldwide</h2>
           
@@ -352,7 +353,7 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="px-6 lg:px-8 py-20">
+      <section id="pricing" className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
@@ -443,7 +444,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 lg:px-8 py-20">
+      <section className="px-6 lg:px-8 py-24">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Catalog?</h2>
           <p className="text-xl text-gray-300 mb-8">
@@ -456,18 +457,86 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-6 lg:px-8 py-12 border-t border-gray-800">
+      {/* Comprehensive Footer */}
+      <footer className="px-6 lg:px-8 py-16 border-t border-gray-800 bg-[#0D1117]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+            {/* Logo and Description */}
+            <div className="md:col-span-1">
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl font-bold text-white font-afacad">Catalog Genie</span>
               </div>
-              <span className="text-xl font-bold text-white font-afacad">Catalog Genie</span>
+              <p className="text-sm text-gray-400 mb-6 max-w-xs">
+                AI-powered catalog management platform that helps eCommerce businesses organize products through intelligent tagging, descriptions, and discovery features.
+              </p>
+              <div className="flex space-x-3">
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#3BC553] transition-colors">
+                  <Twitter className="w-5 h-5 text-gray-400 hover:text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#3BC553] transition-colors">
+                  <Linkedin className="w-5 h-5 text-gray-400 hover:text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#3BC553] transition-colors">
+                  <Github className="w-5 h-5 text-gray-400 hover:text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#3BC553] transition-colors">
+                  <Instagram className="w-5 h-5 text-gray-400 hover:text-white" />
+                </a>
+              </div>
             </div>
-            <div className="text-gray-400 text-sm">
-              © 2024 Catalog Genie. All rights reserved.
+
+            {/* Product */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Product</h4>
+              <ul className="space-y-3">
+                <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                <li><a href="/solutions" className="text-gray-400 hover:text-white transition-colors">Integrations</a></li>
+                <li><a href="/api" className="text-gray-400 hover:text-white transition-colors">API</a></li>
+                <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Company</h4>
+              <ul className="space-y-3">
+                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                <li><a href="/careers" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
+              <ul className="space-y-3">
+                <li><a href="/docs" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="/help" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="/community" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
+                <li><a href="/status" className="text-gray-400 hover:text-white transition-colors">Status</a></li>
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
+              <ul className="space-y-3">
+                <li><a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+                <li><a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+                <li><a href="/security" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
+                <li><a href="/cookies" className="text-gray-400 hover:text-white transition-colors">Cookies</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="pt-8 border-t border-gray-800">
+            <div className="text-center text-gray-400 text-sm">
+              © 2025 Catalog Genie. All rights reserved.
             </div>
           </div>
         </div>
