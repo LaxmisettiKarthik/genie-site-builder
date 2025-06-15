@@ -124,7 +124,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem Section - consistent py-24 spacing */}
+      {/* Problem Section - moved up under LogoCloud - consistent py-24 spacing */}
       <section className="px-6 lg:px-8 py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
