@@ -23,33 +23,40 @@ const InteractiveProductCard = ({ image, title, tags, onTagClick }: ProductCardP
     setVisibleTags([]);
     setScanProgress(0);
     
-    // Animate scan progress
+    // Animate scan progress smoothly
     const progressInterval = setInterval(() => {
       setScanProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 2;
+        return prev + 4;
       });
-    }, 30);
+    }, 50);
 
-    // Show tags with delays
+    // Show tags with sequential delays for a cleaner effect
     tags.forEach((_, index) => {
       setTimeout(() => {
         setVisibleTags(prev => [...prev, index]);
-      }, tags[index].delay);
+      }, 800 + (index * 300)); // Start after scan begins, then 300ms between each tag
     });
 
     // Stop scanning after all tags are visible
     setTimeout(() => {
       setIsScanning(false);
-    }, Math.max(...tags.map(t => t.delay)) + 500);
+    }, 800 + (tags.length * 300) + 500);
   };
+
+  // Reset animation when component unmounts or resets
+  useEffect(() => {
+    if (!isScanning && visibleTags.length === 0) {
+      setScanProgress(0);
+    }
+  }, [isScanning, visibleTags]);
 
   return (
     <Card 
-      className="bg-gray-900/80 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-500 overflow-hidden group hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/10"
+      className="bg-gray-900/80 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-500 overflow-hidden group hover:scale-[1.02] hover:shadow-xl hover:shadow-[#3BC553]/5"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -58,8 +65,9 @@ const InteractiveProductCard = ({ image, title, tags, onTagClick }: ProductCardP
           {/* Product Image */}
           <div className="h-64 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
             <div 
-              className={`w-40 h-48 rounded-lg shadow-xl transition-all duration-500 ${
-                isScanning ? 'scale-105 brightness-110' : isHovered ? 'scale-102' : 'scale-100'
+              className={`w-40 h-48 rounded-lg shadow-xl transition-all duration-700 ${
+                isScanning ? 'scale-105 brightness-110 shadow-2xl shadow-[#3BC553]/20' : 
+                isHovered ? 'scale-102' : 'scale-100'
               }`}
               style={{ 
                 background: image,
@@ -68,67 +76,69 @@ const InteractiveProductCard = ({ image, title, tags, onTagClick }: ProductCardP
               }}
             />
             
-            {/* Scanning Effect */}
+            {/* Clean Scanning Effect */}
             {isScanning && (
               <div className="absolute inset-0 pointer-events-none">
-                <div 
-                  className="absolute top-0 left-0 w-full h-1 bg-[#3BC553] transition-all duration-1000 animate-pulse"
-                  style={{ width: `${scanProgress}%` }}
-                />
-                <div className="absolute inset-0 bg-[#3BC553]/10 animate-pulse" />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <Brain className="w-8 h-8 text-[#3BC553] animate-spin" />
-                </div>
+                {/* Progress bar at top */}
+                <div className="absolute top-0 left-0 h-1 bg-[#3BC553] transition-all duration-300 shadow-lg shadow-[#3BC553]/50"
+                     style={{ width: `${scanProgress}%` }} />
                 
-                {/* Scanning lines effect */}
-                <div className="absolute inset-0">
-                  <div className="absolute w-full h-0.5 bg-[#3BC553] animate-bounce" style={{ top: `${scanProgress}%` }} />
-                  <div className="absolute w-0.5 h-full bg-[#3BC553] animate-bounce" style={{ left: `${scanProgress}%` }} />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-[#3BC553]/5" />
+                
+                {/* AI scanning indicator */}
+                <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/70 rounded-full px-3 py-1 backdrop-blur-sm">
+                  <Brain className="w-4 h-4 text-[#3BC553] animate-pulse" />
+                  <span className="text-[#3BC553] text-xs font-medium">Analyzing...</span>
                 </div>
               </div>
             )}
 
-            {/* Hover effect overlay */}
-            {isHovered && !isScanning && (
-              <div className="absolute inset-0 bg-[#3BC553]/5 animate-pulse pointer-events-none" />
-            )}
+            {/* Clean Tag Positioning */}
+            {tags.map((tag, index) => {
+              // Define clean, non-overlapping positions
+              const positions = [
+                'top-3 left-3',
+                'top-3 right-3', 
+                'bottom-16 left-3',
+                'bottom-16 right-3',
+                'top-1/2 left-3 -translate-y-1/2',
+                'top-1/2 right-3 -translate-y-1/2',
+                'bottom-3 left-1/2 -translate-x-1/2'
+              ];
 
-            {/* AI Tags */}
-            {tags.map((tag, index) => (
-              <div
-                key={tag.label}
-                className={`absolute transition-all duration-500 cursor-pointer hover:z-10 ${
-                  visibleTags.includes(index) 
-                    ? 'opacity-100 scale-100' 
-                    : 'opacity-0 scale-75'
-                } ${
-                  index === 0 ? 'top-4 left-4' :
-                  index === 1 ? 'top-4 right-4' :
-                  index === 2 ? 'bottom-20 left-4' :
-                  index === 3 ? 'bottom-20 right-4' :
-                  index === 4 ? 'top-1/3 left-2 -translate-y-1/2' :
-                  index === 5 ? 'top-1/3 right-2 -translate-y-1/2' :
-                  index === 6 ? 'bottom-8 left-1/4 -translate-x-1/2' :
-                  'bottom-8 right-1/4 translate-x-1/2'
-                }`}
-                onClick={() => onTagClick?.(tag.label)}
-              >
-                <Badge 
-                  className={`${tag.color} text-white text-xs flex items-center gap-1 hover:scale-110 transition-all duration-300 hover:shadow-lg animate-pulse`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
+              return (
+                <div
+                  key={tag.label}
+                  className={`absolute transition-all duration-500 cursor-pointer ${
+                    visibleTags.includes(index) 
+                      ? 'opacity-100 scale-100 translate-y-0' 
+                      : 'opacity-0 scale-75 translate-y-2'
+                  } ${positions[index] || 'bottom-3 left-1/2 -translate-x-1/2'}`}
+                  onClick={() => onTagClick?.(tag.label)}
+                  style={{ 
+                    transitionDelay: visibleTags.includes(index) ? '0ms' : `${index * 100}ms`,
+                    zIndex: 10 + index
+                  }}
                 >
-                  <Tag className="w-3 h-3" />
-                  {tag.label}
-                </Badge>
-              </div>
-            ))}
+                  <Badge 
+                    className={`${tag.color} text-white text-xs flex items-center gap-1.5 px-2.5 py-1 
+                               hover:scale-110 transition-all duration-300 shadow-lg backdrop-blur-sm
+                               border border-white/20 font-medium`}
+                  >
+                    <Tag className="w-3 h-3" />
+                    {tag.label}
+                  </Badge>
+                </div>
+              );
+            })}
           </div>
           
           <div className="p-4">
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-3">
               <h3 className="text-white font-semibold group-hover:text-[#3BC553] transition-colors duration-300">{title}</h3>
               <div className="flex items-center gap-2 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
-                <Eye className="w-3 h-3 animate-pulse" />
+                <Eye className="w-3 h-3" />
                 <span>{visibleTags.length}/{tags.length} detected</span>
               </div>
             </div>
@@ -136,19 +146,20 @@ const InteractiveProductCard = ({ image, title, tags, onTagClick }: ProductCardP
             <Button 
               onClick={startScanning}
               disabled={isScanning}
-              className={`w-full bg-[#3BC553] hover:bg-green-600 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#3BC553]/25 ${
-                isScanning ? 'animate-pulse' : ''
+              className={`w-full bg-[#3BC553] hover:bg-green-600 text-white transition-all duration-300 
+                         hover:scale-[1.02] hover:shadow-lg hover:shadow-[#3BC553]/25 font-medium ${
+                isScanning ? 'cursor-not-allowed opacity-80' : ''
               }`}
               size="sm"
             >
               {isScanning ? (
                 <>
                   <Zap className="w-4 h-4 mr-2 animate-pulse" />
-                  Analyzing...
+                  Analyzing... {Math.round(scanProgress)}%
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+                  <Sparkles className="w-4 h-4 mr-2" />
                   Start AI Analysis
                 </>
               )}
