@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -175,7 +176,7 @@ const ProductTagging = () => {
       <Navigation />
       
       {/* Hero Section with Interactive Elements */}
-      <section className="px-6 lg:px-8 lg:py-32 relative z-10 py-0">
+      <section className="px-6 lg:px-8 lg:py-20 relative z-10 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             
