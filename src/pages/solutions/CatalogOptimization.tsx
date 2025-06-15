@@ -1,9 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Target, TrendingUp, Search, BarChart3, Sparkles } from "lucide-react";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const CatalogOptimization = () => {
   const features = [
@@ -60,7 +60,8 @@ const CatalogOptimization = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+      <FloatingParticles />
       {/* Hero Section */}
       <section className="px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto">

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +5,7 @@ import { ArrowRight, Zap, MessageSquare, Target, Globe, Sparkles } from "lucide-
 import AIContentGenerator from "@/components/AIContentGenerator";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import { useState } from "react";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const ContentGeneration = () => {
   const [showDemo, setShowDemo] = useState(false);
@@ -57,7 +57,8 @@ const ContentGeneration = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+      <FloatingParticles />
       {/* Hero Section */}
       <section className="px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto">
