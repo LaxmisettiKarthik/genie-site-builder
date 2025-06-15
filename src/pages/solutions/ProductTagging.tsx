@@ -2,34 +2,76 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Package, Zap, Clock, Target, CheckCircle, Eye, Brain, Sparkles } from "lucide-react";
-import ProductTaggingDemo from "@/components/ProductTaggingDemo";
+import { ArrowRight, Package, Zap, Clock, Target, CheckCircle, Eye, Brain, Sparkles, MousePointer } from "lucide-react";
+import InteractiveProductCard from "@/components/InteractiveProductCard";
+import FloatingParticles from "@/components/FloatingParticles";
+import TaggingMetrics from "@/components/TaggingMetrics";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import { useState } from "react";
 
 const ProductTagging = () => {
-  const [showDemo, setShowDemo] = useState(false);
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const sampleProducts = [
+    {
+      image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      title: "Summer Dress",
+      tags: [
+        { label: "Summer", color: "bg-blue-500", delay: 500 },
+        { label: "Casual", color: "bg-purple-500", delay: 800 },
+        { label: "Cotton", color: "bg-green-500", delay: 1100 },
+        { label: "Size M", color: "bg-orange-500", delay: 1400 },
+        { label: "Trending", color: "bg-pink-500", delay: 1700 }
+      ]
+    },
+    {
+      image: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      title: "Sport Shoes",
+      tags: [
+        { label: "Athletic", color: "bg-red-500", delay: 600 },
+        { label: "Running", color: "bg-blue-500", delay: 900 },
+        { label: "Size 42", color: "bg-yellow-500", delay: 1200 },
+        { label: "Breathable", color: "bg-cyan-500", delay: 1500 },
+        { label: "New", color: "bg-purple-500", delay: 1800 }
+      ]
+    },
+    {
+      image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      title: "Leather Jacket",
+      tags: [
+        { label: "Leather", color: "bg-amber-600", delay: 700 },
+        { label: "Winter", color: "bg-slate-600", delay: 1000 },
+        { label: "Premium", color: "bg-emerald-500", delay: 1300 },
+        { label: "Black", color: "bg-gray-800", delay: 1600 },
+        { label: "Unisex", color: "bg-indigo-500", delay: 1900 }
+      ]
+    }
+  ];
 
   const features = [
     {
       icon: Brain,
       title: "AI Visual Recognition",
-      description: "Advanced computer vision identifies product attributes from images automatically"
+      description: "Advanced computer vision identifies product attributes from images automatically",
+      interactive: true
     },
     {
       icon: Zap,
       title: "Instant Processing",
-      description: "Tag thousands of products in seconds, not hours or days"
+      description: "Tag thousands of products in seconds, not hours or days",
+      interactive: true
     },
     {
       icon: Target,
       title: "Precise Categorization",
-      description: "99.5% accuracy in product categorization and attribute detection"
+      description: "99.5% accuracy in product categorization and attribute detection",
+      interactive: false
     },
     {
       icon: Package,
       title: "Bulk Operations",
-      description: "Process entire catalogs with a single click, maintaining consistency"
+      description: "Process entire catalogs with a single click, maintaining consistency",
+      interactive: false
     }
   ];
 
@@ -40,80 +82,86 @@ const ProductTagging = () => {
     { metric: "50+", label: "Attributes", description: "Comprehensive product data" }
   ];
 
-  const useCases = [
-    {
-      title: "Fashion & Apparel",
-      description: "Automatically detect colors, patterns, materials, styles, and seasonal categories",
-      tags: ["Color", "Pattern", "Material", "Style", "Season", "Size"]
-    },
-    {
-      title: "Electronics",
-      description: "Identify brands, specifications, categories, and compatibility information",
-      tags: ["Brand", "Model", "Category", "Specs", "Compatibility"]
-    },
-    {
-      title: "Home & Garden",
-      description: "Categorize by room, style, material, and functional attributes",
-      tags: ["Room", "Style", "Material", "Function", "Color"]
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
-      {/* Hero Section */}
-      <section className="px-6 lg:px-8 py-20 lg:py-32">
+    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+      <FloatingParticles />
+      
+      {/* Hero Section with Interactive Elements */}
+      <section className="px-6 lg:px-8 py-20 lg:py-32 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <Badge className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30 mb-6">
-              AI-Powered Solution
+            <Badge className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30 mb-6 animate-pulse">
+              🤖 AI-Powered Solution
             </Badge>
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Automated Product
-              <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Tagging </span>
+              <span className="bg-gradient-to-r from-[#3BC553] via-green-400 to-emerald-300 bg-clip-text text-transparent animate-pulse"> Tagging </span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Transform your product catalog management with AI that automatically identifies, categorizes, and tags products with human-level accuracy in seconds.
+              Watch AI transform your product catalog in real-time. Click, analyze, and see the magic happen instantly.
             </p>
+            
+            {selectedTag && (
+              <div className="mb-6 p-4 bg-[#3BC553]/20 rounded-lg border border-[#3BC553]/30 animate-fade-in">
+                <p className="text-[#3BC553] font-semibold">
+                  🎯 You clicked on: "{selectedTag}" - AI detected this with 99.2% confidence!
+                </p>
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg">
+              <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all">
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg"
-                onClick={() => setShowDemo(!showDemo)}
+                className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg transform hover:scale-105 transition-all"
               >
-                {showDemo ? "Hide Demo" : "See Live Demo"}
-                <Sparkles className="ml-2 w-5 h-5" />
+                <MousePointer className="mr-2 w-5 h-5" />
+                Try Interactive Demo Below
               </Button>
             </div>
-
-            {/* Demo Section */}
-            {showDemo && (
-              <div className="mt-12">
-                <div className="bg-black/20 rounded-2xl p-8 border border-[#3BC553]/30">
-                  <h3 className="text-2xl font-bold text-white mb-6">Live Tagging Demo</h3>
-                  <ProductTaggingDemo />
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="px-6 lg:px-8 py-20 bg-black/20">
+      {/* Interactive Demo Section */}
+      <section className="px-6 lg:px-8 py-20 bg-black/20 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Measurable Impact</h2>
-            <p className="text-xl text-gray-300">See the difference automated tagging makes for your business</p>
+            <h2 className="text-4xl font-bold text-white mb-6">Interactive AI Demo</h2>
+            <p className="text-xl text-gray-300 mb-8">Click "Start AI Analysis" on any product to see real-time tagging</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {sampleProducts.map((product, index) => (
+              <InteractiveProductCard
+                key={index}
+                {...product}
+                onTagClick={setSelectedTag}
+              />
+            ))}
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <TaggingMetrics />
+          </div>
+        </div>
+      </section>
+
+      {/* Animated Benefits Section */}
+      <section className="px-6 lg:px-8 py-20 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">Real-Time Performance</h2>
+            <p className="text-xl text-gray-300">Watch our AI metrics update live</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="bg-gray-900/50 border-gray-700">
+              <Card key={index} className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6">
                   <div className="text-4xl font-bold text-[#3BC553] mb-2">
                     <AnimatedNumber value={benefit.metric.replace(/[^\d.]/g, '')} />
@@ -128,27 +176,49 @@ const ProductTagging = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="px-6 lg:px-8 py-20">
+      {/* Interactive Features Section */}
+      <section className="px-6 lg:px-8 py-20 bg-black/30 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Powerful AI Features</h2>
-            <p className="text-xl text-gray-300">Advanced technology that understands your products</p>
+            <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Features</h2>
+            <p className="text-xl text-gray-300">Hover over cards to see interactive elements</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300">
+                <Card 
+                  key={index} 
+                  className={`bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-500 group cursor-pointer ${
+                    feature.interactive ? 'hover:scale-105 hover:bg-[#3BC553]/5' : ''
+                  }`}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center">
+                      <div className={`w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center transition-all duration-300 ${
+                        feature.interactive ? 'group-hover:scale-110 group-hover:rotate-12' : ''
+                      }`}>
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+                      <div>
+                        <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+                        {feature.interactive && (
+                          <Badge className="bg-[#3BC553]/20 text-[#3BC553] text-xs mt-1">
+                            Interactive
+                          </Badge>
+                        )}
+                      </div>
                     </div>
                     <p className="text-gray-400">{feature.description}</p>
+                    {feature.interactive && (
+                      <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="flex items-center text-[#3BC553] text-sm">
+                          <Sparkles className="w-4 h-4 mr-2" />
+                          Click to experience this feature above!
+                        </div>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               );
@@ -157,47 +227,19 @@ const ProductTagging = () => {
         </div>
       </section>
 
-      {/* Use Cases Section */}
-      <section className="px-6 lg:px-8 py-20 bg-black/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Industry Solutions</h2>
-            <p className="text-xl text-gray-300">Tailored for every product category</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {useCases.map((useCase, index) => (
-              <Card key={index} className="bg-gray-900/50 border-gray-700">
-                <CardHeader>
-                  <CardTitle className="text-xl text-white">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400 mb-4">{useCase.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {useCase.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="px-6 lg:px-8 py-20">
+      <section className="px-6 lg:px-8 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Automate Your Tagging?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join thousands of retailers who have transformed their catalog management with AI.
-          </p>
-          <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-8 py-4 text-lg">
-            Start Free Trial Today
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <div className="bg-gradient-to-r from-[#3BC553]/20 to-green-400/20 rounded-3xl p-12 border border-[#3BC553]/30">
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Automate Your Tagging?</h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Join thousands of retailers experiencing the future of catalog management.
+            </p>
+            <Button size="lg" className="bg-[#3BC553] hover:bg-green-600 text-white px-12 py-6 text-xl transform hover:scale-105 transition-all">
+              Start Your AI Journey
+              <Sparkles className="ml-2 w-6 h-6" />
+            </Button>
+          </div>
         </div>
       </section>
     </div>
