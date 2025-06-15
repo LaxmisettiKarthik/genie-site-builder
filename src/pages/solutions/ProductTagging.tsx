@@ -7,10 +7,19 @@ import InteractiveProductCard from "@/components/InteractiveProductCard";
 import FloatingParticles from "@/components/FloatingParticles";
 import TaggingMetrics from "@/components/TaggingMetrics";
 import AnimatedNumber from "@/components/AnimatedNumber";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const ProductTagging = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [isDemoVisible, setIsDemoVisible] = useState(false);
+  const demoSectionRef = useRef<HTMLElement>(null);
+
+  const handleDemoClick = () => {
+    setIsDemoVisible(true);
+    setTimeout(() => {
+      demoSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   const sampleProducts = [
     {
@@ -18,10 +27,12 @@ const ProductTagging = () => {
       title: "Summer Dress",
       tags: [
         { label: "Summer", color: "bg-blue-500", delay: 500 },
-        { label: "Casual", color: "bg-purple-500", delay: 800 },
-        { label: "Cotton", color: "bg-green-500", delay: 1100 },
-        { label: "Size M", color: "bg-orange-500", delay: 1400 },
-        { label: "Trending", color: "bg-pink-500", delay: 1700 }
+        { label: "Casual", color: "bg-purple-500", delay: 700 },
+        { label: "Size M", color: "bg-orange-500", delay: 900 },
+        { label: "Sleeveless", color: "bg-teal-500", delay: 1100 },
+        { label: "V-Neck", color: "bg-rose-500", delay: 1300 },
+        { label: "Knee-Length", color: "bg-indigo-500", delay: 1500 },
+        { label: "Collarless", color: "bg-yellow-500", delay: 1700 }
       ]
     },
     {
@@ -32,7 +43,8 @@ const ProductTagging = () => {
         { label: "Running", color: "bg-blue-500", delay: 900 },
         { label: "Size 42", color: "bg-yellow-500", delay: 1200 },
         { label: "Breathable", color: "bg-cyan-500", delay: 1500 },
-        { label: "New", color: "bg-purple-500", delay: 1800 }
+        { label: "Mesh Upper", color: "bg-lime-500", delay: 1800 },
+        { label: "Lace-up", color: "bg-purple-500", delay: 2100 }
       ]
     },
     {
@@ -44,6 +56,17 @@ const ProductTagging = () => {
         { label: "Premium", color: "bg-emerald-500", delay: 1300 },
         { label: "Black", color: "bg-gray-800", delay: 1600 },
         { label: "Unisex", color: "bg-indigo-500", delay: 1900 }
+      ]
+    },
+    {
+      image: "linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%)",
+      title: "Cosmetics Set",
+      tags: [
+        { label: "Cosmetics", color: "bg-pink-400", delay: 500 },
+        { label: "Matte Finish", color: "bg-red-400", delay: 800 },
+        { label: "Long-lasting", color: "bg-purple-400", delay: 1100 },
+        { label: "Cruelty-free", color: "bg-green-400", delay: 1400 },
+        { label: "Set of 3", color: "bg-yellow-400", delay: 1700 }
       ]
     }
   ];
@@ -65,13 +88,13 @@ const ProductTagging = () => {
       icon: Target,
       title: "Precise Categorization",
       description: "99.5% accuracy in product categorization and attribute detection",
-      interactive: false
+      interactive: true
     },
     {
       icon: Package,
       title: "Bulk Operations",
       description: "Process entire catalogs with a single click, maintaining consistency",
-      interactive: false
+      interactive: true
     }
   ];
 
@@ -117,6 +140,7 @@ const ProductTagging = () => {
               <Button 
                 size="lg" 
                 variant="outline"
+                onClick={handleDemoClick}
                 className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg transform hover:scale-105 transition-all"
               >
                 <MousePointer className="mr-2 w-5 h-5" />
@@ -128,28 +152,30 @@ const ProductTagging = () => {
       </section>
 
       {/* Interactive Demo Section */}
-      <section className="px-6 lg:px-8 py-20 bg-black/20 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Interactive AI Demo</h2>
-            <p className="text-xl text-gray-300 mb-8">Click "Start AI Analysis" on any product to see real-time tagging</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {sampleProducts.map((product, index) => (
-              <InteractiveProductCard
-                key={index}
-                {...product}
-                onTagClick={setSelectedTag}
-              />
-            ))}
-          </div>
+      {isDemoVisible && (
+        <section ref={demoSectionRef} className="px-6 lg:px-8 py-20 bg-black/20 relative z-10 animate-fade-in">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white mb-6">Interactive AI Demo</h2>
+              <p className="text-xl text-gray-300 mb-8">Click "Start AI Analysis" on any product to see real-time tagging</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              {sampleProducts.map((product, index) => (
+                <InteractiveProductCard
+                  key={index}
+                  {...product}
+                  onTagClick={setSelectedTag}
+                />
+              ))}
+            </div>
 
-          <div className="max-w-2xl mx-auto">
-            <TaggingMetrics />
+            <div className="max-w-2xl mx-auto">
+              <TaggingMetrics />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Animated Benefits Section */}
       <section className="px-6 lg:px-8 py-20 relative z-10">

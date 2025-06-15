@@ -33,13 +33,22 @@ const FloatingParticles = () => {
     // Animate particles
     const animateParticles = () => {
       setParticles(prev => 
-        prev.map(particle => ({
-          ...particle,
-          x: particle.x + particle.speedX,
-          y: particle.y + particle.speedY,
-          x: particle.x > window.innerWidth ? 0 : particle.x < 0 ? window.innerWidth : particle.x,
-          y: particle.y > window.innerHeight ? 0 : particle.y < 0 ? window.innerHeight : particle.y
-        }))
+        prev.map(particle => {
+          let x = particle.x + particle.speedX;
+          let y = particle.y + particle.speedY;
+
+          if (x > window.innerWidth) x = 0;
+          else if (x < 0) x = window.innerWidth;
+
+          if (y > window.innerHeight) y = 0;
+          else if (y < 0) y = window.innerHeight;
+
+          return {
+            ...particle,
+            x,
+            y,
+          };
+        })
       );
     };
 

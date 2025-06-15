@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -90,8 +89,10 @@ const InteractiveProductCard = ({ image, title, tags, onTagClick }: ProductCardP
                   index === 1 ? 'top-4 right-4' :
                   index === 2 ? 'bottom-20 left-4' :
                   index === 3 ? 'bottom-20 right-4' :
-                  index === 4 ? 'top-1/2 left-2' :
-                  'top-1/2 right-2'
+                  index === 4 ? 'top-1/3 left-2 -translate-y-1/2' :
+                  index === 5 ? 'top-1/3 right-2 -translate-y-1/2' :
+                  index === 6 ? 'bottom-8 left-1/4 -translate-x-1/2' :
+                  'bottom-8 right-1/4 translate-x-1/2'
                 }`}
                 onClick={() => onTagClick?.(tag.label)}
               >
