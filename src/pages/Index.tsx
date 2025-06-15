@@ -5,6 +5,7 @@ import { ArrowRight, Sparkles, Zap, Shield, Users, Star, CheckCircle, Clock, Tre
 import ProductTaggingDemo from "@/components/ProductTaggingDemo";
 import AIContentGenerator from "@/components/AIContentGenerator";
 import RetailDashboard from "@/components/RetailDashboard";
+import Navigation from "@/components/Navigation";
 import { useState, useEffect } from "react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import BusinessResults from "@/components/BusinessResults";
@@ -48,23 +49,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
       {/* Navigation */}
-      <nav className="flex items-center justify-between p-6 lg:px-8">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-[#3BC553] rounded-lg flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold text-white">Catalog Genie</span>
-        </div>
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
-          <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
-          <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
-          <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-          <Button variant="outline" className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white">
-            Sign In
-          </Button>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="px-6 lg:px-8 py-20 lg:py-32">
