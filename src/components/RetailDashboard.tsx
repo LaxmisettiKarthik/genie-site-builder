@@ -84,8 +84,6 @@ const RetailDashboard = () => {
     { action: "Updated SEO", product: "Beauty Products", count: "31 items", time: "18 min ago" }
   ];
 
-  const displayedActivity = isActivityExpanded ? recentActivity : recentActivity.slice(0, 3);
-
   return (
     <div className="space-y-6">
       {/* Header with Feel It Button */}
@@ -128,7 +126,7 @@ const RetailDashboard = () => {
                         <AnimatedNumber 
                           value={item.value} 
                           key={`${item.metric}-${interactionCount}`}
-                          duration={1500}
+                          duration={2500}
                         />
                         {item.suffix && <span>{item.suffix}</span>}
                       </div>
@@ -186,7 +184,7 @@ const RetailDashboard = () => {
                   <AnimatedNumber 
                     value={metric.value} 
                     key={`${metric.label}-${interactionCount}`}
-                    duration={2000}
+                    duration={3000}
                   />
                   {metric.suffix && <span>{metric.suffix}</span>}
                 </div>
@@ -227,21 +225,41 @@ const RetailDashboard = () => {
         </CardHeader>
         <CardContent className="p-6 pt-0">
           <div className="space-y-3">
-            {displayedActivity.map((activity, index) => (
-              <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
-                  <div>
-                    <span className="text-white text-sm font-medium">{activity.action}</span>
-                    <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
+            {isActivityExpanded ? (
+              // Show all 6 items when expanded
+              recentActivity.map((activity, index) => (
+                <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
+                    <div>
+                      <span className="text-white text-sm font-medium">{activity.action}</span>
+                      <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
+                    <div className="text-gray-400 text-xs">{activity.time}</div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
-                  <div className="text-gray-400 text-xs">{activity.time}</div>
+              ))
+            ) : (
+              // Show only first 3 items when collapsed
+              recentActivity.slice(0, 3).map((activity, index) => (
+                <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-[#3BC553] rounded-full animate-pulse"></div>
+                    <div>
+                      <span className="text-white text-sm font-medium">{activity.action}</span>
+                      <span className="text-gray-400 text-sm ml-1">{activity.product}</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[#3BC553] text-sm font-medium">{activity.count}</div>
+                    <div className="text-gray-400 text-xs">{activity.time}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </CardContent>
       </Card>
