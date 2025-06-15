@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -69,29 +70,32 @@ const Index = () => {
                     Experience how our AI automatically generates compelling product content for your retail business.
                   </p>
                   <AIContentGenerator />
+                  
+                  {/* Moved Stats Section */}
+                  <div className="mt-8">
+                    <h4 className="text-xl font-bold text-white mb-6 text-center">Catalog Performance Metrics</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">95%</div>
+                        <div className="text-gray-400 text-sm">Time Saved</div>
+                      </div>
+                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">10x</div>
+                        <div className="text-gray-400 text-sm">Faster Processing</div>
+                      </div>
+                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">99.9%</div>
+                        <div className="text-gray-400 text-sm">Accuracy Rate</div>
+                      </div>
+                      <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
+                        <div className="text-3xl font-bold text-[#3BC553] mb-2">24/7</div>
+                        <div className="text-gray-400 text-sm">Automated Processing</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
-          </div>
-
-          {/* Hero Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-              <div className="text-3xl font-bold text-[#3BC553] mb-2">95%</div>
-              <div className="text-gray-400 text-sm">Time Saved</div>
-            </div>
-            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-              <div className="text-3xl font-bold text-[#3BC553] mb-2">10x</div>
-              <div className="text-gray-400 text-sm">Faster Processing</div>
-            </div>
-            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-              <div className="text-3xl font-bold text-[#3BC553] mb-2">99.9%</div>
-              <div className="text-gray-400 text-sm">Accuracy Rate</div>
-            </div>
-            <div className="bg-gray-900/30 rounded-lg p-6 border border-gray-700">
-              <div className="text-3xl font-bold text-[#3BC553] mb-2">24/7</div>
-              <div className="text-gray-400 text-sm">Automated Processing</div>
-            </div>
           </div>
         </div>
       </section>
