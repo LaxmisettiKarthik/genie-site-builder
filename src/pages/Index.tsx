@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +11,7 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import BusinessResults from "@/components/BusinessResults";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import LogoCloud from "@/components/LogoCloud";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Index = () => {
   const [showAIDemo, setShowAIDemo] = useState(false);
@@ -49,7 +49,8 @@ const Index = () => {
   }, [showAIDemo]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#231F20] via-gray-900 to-[#231F20]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+      <FloatingParticles />
       {/* Navigation */}
       <Navigation />
 
@@ -123,7 +124,7 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="px-6 lg:px-8 py-20 bg-black/20">
+      <section className="px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">The Manual Catalog Challenge</h2>
@@ -186,7 +187,7 @@ const Index = () => {
                   See how Catalog Genie transforms your product management workflow
                 </p>
                 <div className="relative aspect-video rounded-lg overflow-hidden">
-                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Catalog Genie Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0 w-full h-full"></iframe>
+                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" title="Catalog Genie Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0 w-full h-full"></iframe>
                 </div>
               </div>
             </div>
@@ -246,7 +247,7 @@ const Index = () => {
       </section>
 
       {/* AI Demo Section - Updated to show only dashboard */}
-      <section id="demo" className="px-6 lg:px-8 py-20 bg-black/20">
+      <section id="demo" className="px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Real-Time Analytics Dashboard</h2>
@@ -265,7 +266,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="px-6 lg:px-8 py-20 bg-black/20">
+      <section id="features" className="px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Powerful Features for Modern Retailers</h2>
@@ -351,7 +352,7 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="px-6 lg:px-8 py-20 bg-black/20">
+      <section id="pricing" className="px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
