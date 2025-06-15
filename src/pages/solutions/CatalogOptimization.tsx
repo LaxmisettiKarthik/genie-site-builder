@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Target, TrendingUp, Search, BarChart3, Sparkles } from "lucide-react";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import FloatingParticles from "@/components/FloatingParticles";
+import Navigation from "@/components/Navigation";
 
 const CatalogOptimization = () => {
   const features = [
@@ -60,8 +61,12 @@ const CatalogOptimization = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden font-lexend">
       <FloatingParticles />
+      
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto">
@@ -69,7 +74,7 @@ const CatalogOptimization = () => {
             <Badge className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30 mb-6">
               Performance Optimization
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight font-afacad">
               Catalog
               <span className="bg-gradient-to-r from-[#3BC553] to-green-400 bg-clip-text text-transparent"> Optimization </span>
             </h1>
@@ -98,7 +103,7 @@ const CatalogOptimization = () => {
       <section className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Proven Optimization Results</h2>
+            <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Proven Optimization Results</h2>
             <p className="text-xl text-gray-300">Real improvements across key performance metrics</p>
           </div>
           
@@ -106,7 +111,7 @@ const CatalogOptimization = () => {
             {optimizations.map((optimization, index) => (
               <Card key={index} className="bg-gray-900/50 border-gray-700">
                 <CardHeader>
-                  <CardTitle className="text-xl text-white">{optimization.title}</CardTitle>
+                  <CardTitle className="text-xl text-white font-afacad">{optimization.title}</CardTitle>
                   <p className="text-gray-400">{optimization.description}</p>
                 </CardHeader>
                 <CardContent>
@@ -136,7 +141,7 @@ const CatalogOptimization = () => {
       <section className="px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Optimization Features</h2>
+            <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Optimization Features</h2>
             <p className="text-xl text-gray-300">Comprehensive tools for catalog enhancement</p>
           </div>
           
@@ -150,7 +155,7 @@ const CatalogOptimization = () => {
                       <div className="w-12 h-12 bg-[#3BC553] rounded-lg flex items-center justify-center">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+                      <h3 className="text-xl font-semibold text-white font-afacad">{feature.title}</h3>
                     </div>
                     <p className="text-gray-400">{feature.description}</p>
                   </CardContent>
@@ -165,7 +170,7 @@ const CatalogOptimization = () => {
       <section className="px-6 lg:px-8 py-20 bg-black/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Performance Impact</h2>
+            <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Performance Impact</h2>
             <p className="text-xl text-gray-300">Average improvements across our client base</p>
           </div>
           
@@ -216,7 +221,7 @@ const CatalogOptimization = () => {
       {/* CTA Section */}
       <section className="px-6 lg:px-8 py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Optimize Your Catalog?</h2>
+          <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Ready to Optimize Your Catalog?</h2>
           <p className="text-xl text-gray-300 mb-8">
             Start maximizing your catalog's performance with AI-driven optimization.
           </p>

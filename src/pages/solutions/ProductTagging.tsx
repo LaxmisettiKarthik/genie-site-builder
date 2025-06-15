@@ -6,7 +6,9 @@ import InteractiveProductCard from "@/components/InteractiveProductCard";
 import FloatingParticles from "@/components/FloatingParticles";
 import TaggingMetrics from "@/components/TaggingMetrics";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import Navigation from "@/components/Navigation";
 import { useState, useRef } from "react";
+
 const ProductTagging = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [isDemoVisible, setIsDemoVisible] = useState(false);
@@ -167,8 +169,12 @@ const ProductTagging = () => {
     label: "Attributes",
     description: "Comprehensive product data"
   }];
-  return <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden font-lexend">
       <FloatingParticles />
+      
+      {/* Navigation */}
+      <Navigation />
       
       {/* Hero Section with Interactive Elements */}
       <section className="px-6 lg:px-8 py-20 lg:py-32 relative z-10">
@@ -177,7 +183,7 @@ const ProductTagging = () => {
             <Badge className="bg-[#3BC553]/20 text-[#3BC553] border-[#3BC553]/30 mb-6 animate-pulse">
               🤖 AI-Powered Solution
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight font-afacad">
               Automated Product
               <span className="bg-gradient-to-r from-[#3BC553] via-green-400 to-emerald-300 bg-clip-text text-transparent animate-pulse"> Tagging </span>
             </h1>
@@ -198,7 +204,7 @@ const ProductTagging = () => {
               </Button>
               <Button size="lg" variant="outline" onClick={handleDemoClick} className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white px-8 py-4 text-lg transform hover:scale-105 transition-all">
                 <MousePointer className="mr-2 w-5 h-5" />
-                Try Interactive Demo Below
+                Feel It
               </Button>
             </div>
           </div>
@@ -209,7 +215,7 @@ const ProductTagging = () => {
       {isDemoVisible && <section ref={demoSectionRef} className="px-6 lg:px-8 py-20 bg-black/20 relative z-10 animate-fade-in">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6">Interactive AI Demo</h2>
+              <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Interactive AI Demo</h2>
               <p className="text-xl text-gray-300 mb-8">Click "Start AI Analysis" on any product to see real-time tagging</p>
             </div>
             
@@ -227,14 +233,14 @@ const ProductTagging = () => {
       <section className="px-6 lg:px-8 py-20 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Real-Time Performance</h2>
+            <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Real-Time Performance</h2>
             <p className="text-xl text-gray-300">Watch our AI metrics update live</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {benefits.map((benefit, index) => <Card key={index} className="bg-gray-900/50 border-gray-700 hover:border-[#3BC553]/50 transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-[#3BC553] mb-2">
+                  <div className="text-4xl font-bold text-[#3BC553] mb-2 font-afacad">
                     <AnimatedNumber value={benefit.metric.replace(/[^\d.]/g, '')} />
                     {benefit.metric.replace(/[\d.]/g, '')}
                   </div>
@@ -250,7 +256,7 @@ const ProductTagging = () => {
       <section className="px-6 lg:px-8 py-20 bg-black/30 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Features</h2>
+            <h2 className="text-4xl font-bold text-white mb-6 font-afacad">AI-Powered Features</h2>
             <p className="text-xl text-gray-300">Hover over cards to see interactive elements</p>
           </div>
           
@@ -264,7 +270,7 @@ const ProductTagging = () => {
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+                        <h3 className="text-xl font-semibold text-white font-afacad">{feature.title}</h3>
                         {feature.interactive}
                       </div>
                     </div>
@@ -286,7 +292,7 @@ const ProductTagging = () => {
       <section className="px-6 lg:px-8 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-r from-[#3BC553]/20 to-green-400/20 rounded-3xl p-12 border border-[#3BC553]/30">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Automate Your Tagging?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6 font-afacad">Ready to Automate Your Tagging?</h2>
             <p className="text-xl text-gray-300 mb-8">
               Join thousands of retailers experiencing the future of catalog management.
             </p>
@@ -297,6 +303,8 @@ const ProductTagging = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default ProductTagging;

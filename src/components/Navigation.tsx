@@ -95,7 +95,9 @@ const Navigation = () => {
         <a href="/#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
         <a href="/#about" className="text-gray-300 hover:text-white transition-colors">About</a>
         <Button variant="outline" className="border-[#3BC553] text-[#3BC553] hover:bg-[#3BC553] hover:text-white">
-          Book a Free Call
+          <a href="https://www.linkedin.com/company/andinolabs/" target="_blank" rel="noopener noreferrer">
+            Book a Free Call
+          </a>
         </Button>
       </div>
     </nav>
